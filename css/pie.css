@@ -1,0 +1,4695 @@
+/* PIE Challenge — unified styling. Original CSS sections kept in HTML link order. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+/* ===== style(3).css (merged, original selectors kept) ===== */
+
+
+
+:root {
+    --bg: #100d24;
+    --surface: #1d1938;
+    --surface-light: #29234a;
+    --primary: #8b5cf6;
+    --primary-light: #a78bfa;
+    --yellow: #facc15;
+    --text: #ffffff;
+    --muted: #aaa5c5;
+    --success: #22c55e;
+    --danger: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+            radial-gradient(circle at 15% 10%, #30205b 0, transparent 35%),
+            radial-gradient(circle at 85% 80%, #25164c 0, transparent 35%),
+            var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', Arial, sans-serif;
+    padding-bottom: 100px;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+/* HEADER */
+
+.topbar {
+    height: 75px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff12;
+    background: #100d24cc;
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--yellow);
+}
+
+.header-stats {
+    display: flex;
+    gap: 20px;
+    color: var(--yellow);
+    font-size: 14px;
+}
+
+/* GENERAL */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 45px auto;
+}
+
+.view {
+    display: none;
+    animation: appear 0.4s ease;
+}
+
+.view.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HOME */
+
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.hero-badge,
+.question-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: #8b5cf622;
+    border: 1px solid #8b5cf655;
+    color: var(--primary-light);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 52px);
+    margin: 25px 0 15px;
+}
+
+.hero h1 span {
+    color: var(--yellow);
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, var(--primary), #6d28d9);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 25px;
+    box-shadow: 0 8px 25px #8b5cf633;
+    transition: 0.25s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px #8b5cf655;
+}
+
+.primary-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.feature-card {
+    padding: 25px;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid #ffffff12;
+    border-radius: 18px;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.feature-card span {
+    font-size: 35px;
+}
+
+.feature-card h3 {
+    margin: 12px 0 6px;
+}
+
+.feature-card p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* SECTION HEADINGS */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h1 {
+    font-size: 32px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+/* LEVELS */
+
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.level-card {
+    padding: 25px;
+    background: var(--surface);
+    border: 1px solid #ffffff15;
+    border-radius: 18px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.level-card:hover:not(.locked) {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.level-card.locked {
+    opacity: 0.5;
+    filter: grayscale(0.7);
+}
+
+.level-icon {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.level-card h3 {
+    margin-bottom: 8px;
+}
+
+.level-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.level-status {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 12px;
+    background: #ffffff10;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.level-card button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 11px;
+    background: var(--primary);
+    color: white;
+    border-radius: 9px;
+    font-weight: 600;
+}
+
+.level-card.locked button {
+    background: #55516b;
+    cursor: not-allowed;
+}
+
+/* GAME */
+
+.game-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.game-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    font-weight: 600;
+}
+
+.game-progress span:last-child {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.progress-track {
+    height: 9px;
+    background: var(--surface-light);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary), var(--yellow));
+    border-radius: 20px;
+    transition: width 0.4s;
+}
+
+.question-card {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: var(--surface);
+    border: 1px solid #ffffff15;
+    border-radius: 22px;
+    text-align: center;
+}
+
+.question-card h2 {
+    margin: 20px 0 10px;
+    font-size: 25px;
+}
+
+.question-card > p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.question-content {
+    margin: 25px 0;
+}
+
+.question-image {
+    width: 100%;
+    max-width: 280px;
+    height: 160px;
+    object-fit: contain;
+    background: var(--surface-light);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.answer-area {
+    margin: 20px 0;
+}
+
+.answer-input {
+    width: 100%;
+    max-width: 450px;
+    padding: 15px;
+    background: var(--bg);
+    color: white;
+    border: 1px solid #ffffff25;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.answer-input:focus {
+    border-color: var(--primary-light);
+}
+
+.word-options,
+.letter-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.word-chip,
+.letter-chip {
+    padding: 12px 17px;
+    background: var(--surface-light);
+    color: white;
+    border: 1px solid #ffffff20;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.word-chip:hover,
+.letter-chip:hover {
+    border-color: var(--primary);
+}
+
+.feedback {
+    min-height: 28px;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.feedback.success {
+    color: var(--success);
+}
+
+.feedback.error {
+    color: var(--danger);
+}
+
+.game-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hint-btn {
+    padding: 13px 18px;
+    background: #facc1520;
+    color: var(--yellow);
+    border: 1px solid #facc1540;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* RESULTS */
+
+.result-card {
+    max-width: 550px;
+    margin: 50px auto;
+    padding: 40px;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid #ffffff15;
+    border-radius: 22px;
+}
+
+.result-icon {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.result-card p {
+    color: var(--muted);
+    margin: 12px 0;
+}
+
+.result-score {
+    margin: 25px 0;
+    color: var(--yellow);
+    font-size: 25px;
+}
+
+/* PROFILE */
+
+.profile-card {
+    max-width: 600px;
+    margin: auto;
+    padding: 35px;
+    text-align: center;
+    background: var(--surface);
+    border-radius: 20px;
+}
+
+.profile-avatar {
+    font-size: 55px;
+}
+
+.profile-card h2 {
+    margin: 10px 0 25px;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.profile-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 15px 5px;
+    background: var(--surface-light);
+    border-radius: 12px;
+}
+
+.profile-stats strong {
+    color: var(--yellow);
+    font-size: 22px;
+}
+
+.profile-stats span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* HELP */
+
+.help-card {
+    max-width: 650px;
+    margin: auto;
+    padding: 30px;
+    background: var(--surface);
+    border-radius: 18px;
+    line-height: 2.5;
+}
+
+/* BUTTONS */
+
+.secondary-btn {
+    padding: 11px 17px;
+    background: var(--surface-light);
+    color: white;
+    border: 1px solid #ffffff20;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.secondary-btn:hover {
+    border-color: var(--primary);
+}
+
+/* BOTTOM NAVIGATION */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px 10px;
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    background: #17132dee;
+    border-top: 1px solid #ffffff15;
+    backdrop-filter: blur(15px);
+    z-index: 20;
+}
+
+.bottom-nav button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 20px;
+}
+
+.bottom-nav button span {
+    font-size: 11px;
+}
+
+.bottom-nav button:hover {
+    color: var(--yellow);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+    .features,
+    .levels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 40px 10px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .question-card {
+        padding: 22px 15px;
+    }
+
+    .bottom-nav {
+        gap: 25px;
+    }
+
+    .profile-stats {
+        gap: 7px;
+    }
+
+    .profile-stats strong {
+        font-size: 18px;
+    }
+
+    .profile-stats span {
+        font-size: 10px;
+    }
+}
+
+.question-image-placeholder,
+.crossword-placeholder,
+.mystery-icon {
+    font-size: 55px;
+    padding: 25px;
+    margin: 15px auto;
+}
+
+.instruction {
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.selected-words {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--bg);
+    border-radius: 12px;
+}
+
+.selected-words strong {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.word-chip:disabled {
+    cursor: not-allowed;
+}
+
+/* =================================
+   KALIMAT CRASH STYLE LETTER GRID
+================================= */
+
+.game-picture {
+    font-size: 65px;
+    margin: 15px auto;
+    animation: pictureFloat 2s infinite ease-in-out;
+}
+
+@keyframes pictureFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+.mode-instruction {
+    color: var(--muted);
+    margin: 10px 0 20px;
+}
+
+.answer-slots {
+    min-height: 65px;
+    padding: 12px;
+    margin: 15px auto 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    background: #0d2635;
+    border: 2px solid #ffffff15;
+    border-radius: 12px;
+}
+
+.slot-placeholder {
+    color: #8797a8;
+    font-size: 13px;
+}
+
+.answer-letter {
+    width: 35px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(145deg, #facc15, #eaa800);
+    color: #5b4200;
+    border-radius: 8px;
+    font-size: 19px;
+    font-weight: 800;
+    box-shadow: 0 3px 0 #9c6b00;
+}
+
+.letter-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(35px, 1fr));
+    gap: 9px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.letter-tile {
+    aspect-ratio: 1;
+    background: linear-gradient(145deg, #62d5ed, #278acb);
+    color: #064b70;
+    border: 2px solid #ffffff55;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 800;
+    box-shadow: 0 4px 0 #17628f;
+    transition: 0.15s;
+}
+
+.letter-tile:nth-child(3n) {
+    background: linear-gradient(145deg, #ffe76b, #f5b900);
+    color: #735000;
+    box-shadow: 0 4px 0 #b77d00;
+}
+
+.letter-tile:nth-child(3n + 1) {
+    background: linear-gradient(145deg, #8df16d, #48c63e);
+    color: #17652c;
+    box-shadow: 0 4px 0 #278b2c;
+}
+
+.letter-tile:hover:not(:disabled) {
+    transform: translateY(-3px);
+}
+
+.letter-tile:disabled {
+    opacity: 0.25;
+    cursor: default;
+    transform: scale(0.94);
+    box-shadow: none;
+}
+
+.letter-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* WORD ORDER */
+
+.word-answer-area {
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #0d2635;
+    border-radius: 12px;
+}
+
+.word-answer-area strong {
+    color: var(--yellow);
+}
+
+.selected-words {
+    min-height: 50px;
+}
+
+.word-selected {
+    opacity: 0.3;
+}
+
+.selected-word {
+    background: #3eaf55;
+    color: white;
+}
+
+/* ODD ONE */
+
+.odd-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 12px;
+    max-width: 450px;
+    margin: auto;
+}
+
+.odd-option {
+    padding: 17px 10px;
+    background: linear-gradient(145deg, #4ebfe7, #248acb);
+    color: white;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid #ffffff35;
+    box-shadow: 0 4px 0 #17628f;
+}
+
+.odd-option.odd-selected {
+    background: linear-gradient(145deg, #8df16d, #48c63e);
+    color: #145d25;
+    border-color: white;
+}
+
+.odd-option:disabled {
+    opacity: 0.6;
+}
+
+@media (max-width: 500px) {
+    .letter-grid {
+        gap: 6px;
+    }
+
+    .letter-tile {
+        font-size: 18px;
+        border-radius: 7px;
+    }
+
+    .answer-letter {
+        width: 29px;
+        height: 36px;
+    }
+}
+
+/* =====================================
+   PIE CHALLENGE - GAME SCREEN DESIGN
+===================================== */
+
+#gameView {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Game background */
+
+#gameView .question-card {
+    max-width: 100%;
+    padding: 30px 25px;
+    background:
+            radial-gradient(circle at top, #176b83, transparent 65%),
+            linear-gradient(160deg, #123e5c, #092c48);
+    border: 3px solid #287b98;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px #0005;
+    overflow: hidden;
+}
+
+/* Top information */
+
+#gameView .game-top {
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #17617d, #10435f);
+    border: 2px solid #3485a0;
+    border-radius: 15px;
+}
+
+#gameView .game-progress {
+    color: white;
+}
+
+#gameView .game-progress span:last-child {
+    color: #b9e7f4;
+}
+
+/* Question title */
+
+#gameView .question-card h2 {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 800;
+    text-shadow: 0 3px 5px #0005;
+}
+
+#gameView .question-card > p {
+    color: #d1edf5;
+}
+
+/* Question badge */
+
+#gameView .question-badge {
+    background: #facc1525;
+    border: 2px solid #ffda55;
+    color: #ffe477;
+}
+
+/* Question picture */
+
+#gameView .game-picture {
+    width: 145px;
+    height: 125px;
+    display: grid;
+    place-items: center;
+    margin: 20px auto;
+    font-size: 65px;
+    background: linear-gradient(145deg, #e9faff, #a8dce9);
+    border: 5px solid #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 7px 0 #15516b;
+}
+
+/* Instructions */
+
+#gameView .mode-instruction {
+    color: #d5f4ff;
+    font-weight: 600;
+}
+
+/* Answer area */
+
+#gameView .answer-slots {
+    min-height: 70px;
+    background: #092b40;
+    border: 2px solid #3986a0;
+    border-radius: 14px;
+    box-shadow: inset 0 4px 10px #0005;
+}
+
+#gameView .answer-letter {
+    width: 38px;
+    height: 44px;
+    background: linear-gradient(145deg, #fff27a, #ffc928);
+    color: #795000;
+    border: 2px solid #fff6b4;
+    border-radius: 8px;
+    box-shadow: 0 4px 0 #b47a0b;
+    animation: letterPop 0.2s ease;
+}
+
+@keyframes letterPop {
+    from {
+        transform: scale(0.7);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Letter grid */
+
+#gameView .letter-grid {
+    max-width: 440px;
+    gap: 10px;
+    padding: 15px;
+    margin: 15px auto;
+    background: #0b3049;
+    border: 2px solid #276783;
+    border-radius: 18px;
+}
+
+#gameView .letter-tile {
+    border: 2px solid #ffffffaa;
+    border-radius: 11px;
+    font-size: 23px;
+    transition: transform 0.15s, filter 0.15s;
+}
+
+#gameView .letter-tile:active:not(:disabled) {
+    transform: scale(0.9);
+}
+
+#gameView .letter-tile:disabled {
+    opacity: 0.18;
+    filter: grayscale(1);
+}
+
+/* Action buttons */
+
+#gameView .letter-actions .secondary-btn {
+    background: #17617d;
+    border: 2px solid #4b9bb4;
+    color: white;
+}
+
+#gameView .letter-actions .secondary-btn:hover {
+    background: #247f9d;
+}
+
+/* Main buttons */
+
+#gameView .primary-btn {
+    background: linear-gradient(145deg, #ffe66d, #ffb91e);
+    color: #664400;
+    border: 2px solid #fff0a5;
+    box-shadow: 0 5px 0 #a66b08;
+    font-weight: 800;
+}
+
+#gameView .primary-btn:hover {
+    transform: translateY(-2px);
+}
+
+#gameView .hint-btn {
+    background: #164d6b;
+    color: #ffe477;
+    border: 2px solid #478ba5;
+}
+
+/* Feedback */
+
+#gameView .feedback {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#gameView .feedback.success {
+    background: #22c55e25;
+    color: #8bffae;
+}
+
+#gameView .feedback.error {
+    background: #ef444425;
+    color: #ffaaaa;
+}
+
+/* Progress bar */
+
+#gameView .progress-track {
+    height: 12px;
+    background: #092b40;
+    border: 1px solid #3986a0;
+}
+
+#gameView .progress-fill {
+    background: linear-gradient(90deg, #ffe66d, #ffae20);
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    #gameView .question-card {
+        padding: 22px 12px;
+    }
+
+    #gameView .game-top {
+        padding: 10px;
+    }
+
+    #gameView .question-card h2 {
+        font-size: 21px;
+    }
+
+    #gameView .letter-grid {
+        gap: 7px;
+        padding: 10px;
+    }
+
+    #gameView .letter-tile {
+        font-size: 19px;
+    }
+
+    #gameView .game-picture {
+        width: 120px;
+        height: 105px;
+        font-size: 55px;
+    }
+}
+
+/* Fix game screen spacing and bottom navigation overlap */
+
+#gameView {
+    padding-top: 25px;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+}
+
+#gameView .question-card {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    #gameView {
+        padding-top: 15px;
+        padding-bottom: 130px;
+    }
+}
+
+/* =================================
+   PIE CHALLENGE - QUESTION IMAGES
+================================= */
+
+#gameView .game-picture {
+    width: min(100%, 380px);
+    height: 190px;
+    margin: 20px auto;
+    padding: 0;
+    overflow: hidden;
+    border: 3px solid #ffffff;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #dff6ff, #9bdce8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+#gameView .question-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+#gameView .game-picture:hover .question-image {
+    transform: scale(1.05);
+}
+
+#gameView .image-placeholder {
+    font-size: 75px;
+}
+
+@media (max-width: 600px) {
+    #gameView .game-picture {
+        height: 150px;
+        width: 90%;
+    }
+}
+
+/* =================================
+   QUESTION TRANSITION ANIMATION
+================================= */
+
+@keyframes questionEnter {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#gameView .question-card.animate-question {
+    animation: questionEnter 0.45s ease-out;
+}
+
+#gameView .game-picture {
+    animation: questionEnter 0.55s ease-out;
+}
+
+/* =================================
+   PIE CHALLENGE - BUTTON EFFECTS
+================================= */
+
+/* General button animation */
+#gameView button {
+    transition: transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* Hover effect */
+#gameView button:not(:disabled):hover {
+    transform: translateY(-3px);
+    filter: brightness(1.12);
+    box-shadow: 0 5px 14px rgba(0, 220, 255, 0.2);
+}
+
+/* Click effect */
+#gameView button:not(:disabled):active {
+    transform: scale(0.95);
+}
+
+/* Disabled buttons */
+#gameView button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Main verify button */
+#gameView #checkBtn {
+    box-shadow: 0 4px 0 #c58a00;
+}
+
+#gameView #checkBtn:not(:disabled):hover {
+    box-shadow: 0 6px 0 #c58a00,
+    0 8px 18px rgba(255, 190, 0, 0.3);
+}
+
+/* =========================================
+   CROSSWORD — CLEAN RESPONSIVE DESIGN
+   ========================================= */
+#gameView .crossword-board {
+    width: 100%;
+    max-width: 680px;
+    margin: 16px auto;
+    padding: 20px 12px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.055);
+    overflow-x: auto;
+}
+#gameView .crossword-board h3 {
+    font-size: clamp(16px, 3vw, 21px);
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+#gameView .real-crossword-grid {
+    display: grid;
+    grid-template-columns: repeat(15, minmax(0, 1fr));
+    gap: clamp(2px, .5vw, 5px);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+#gameView .crossword-square {
+    min-width: 0;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: transparent;
+    font-size: clamp(9px, 1.8vw, 17px);
+    font-weight: 800;
+    line-height: 1;
+    user-select: none;
+}
+#gameView .crossword-square.active {
+    background: linear-gradient(145deg,#ffe976,#ffc52b);
+    border: 1px solid #e4a200;
+    color: #503400;
+    box-shadow: 0 2px 0 #a97400;
+    cursor: pointer;
+}
+#gameView .crossword-square.active.selected {
+    outline: 3px solid #66f0c0;
+    outline-offset: 1px;
+    position: relative;
+    z-index: 1;
+}
+#gameView .crossword-square.active.filled {
+    background: linear-gradient(145deg,#8ff3a1,#4ade80);
+    color: #123524;
+    border-color: #2b9b58;
+}
+#gameView .crossword-keyboard {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0,1fr));
+    gap: 8px;
+    width: 100%;
+    max-width: 480px;
+    margin: 22px auto 8px;
+}
+#gameView .crossword-key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 43px;
+    padding: 0;
+    border: 2px solid #e9a900;
+    border-radius: 8px;
+    background: linear-gradient(145deg,#ffe976,#ffc52b);
+    color: #392600;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 1;
+    box-shadow: 0 3px 0 #a97400;
+    cursor: pointer;
+}
+#gameView .crossword-key:focus-visible,
+#gameView .crossword-square.active:focus-visible {
+    outline: 3px solid #77f7ff;
+    outline-offset: 2px;
+}
+#gameView .crossword-key:hover:not(:disabled) {
+    filter: brightness(1.08);
+}
+@media (max-width: 600px) {
+    #gameView .crossword-board { padding: 14px 6px; }
+    #gameView .real-crossword-grid { gap: 2px; }
+    #gameView .crossword-square { border-radius: 3px; font-size: clamp(7px, 2vw, 12px); }
+    #gameView .crossword-keyboard {
+        grid-template-columns: repeat(7,minmax(0,1fr));
+        gap: 6px;
+    }
+    #gameView .crossword-key { min-height: 39px; font-size: 15px; }
+}
+@media (max-width: 380px) {
+    #gameView .crossword-keyboard { gap: 4px; }
+    #gameView .crossword-key { min-height: 35px; font-size: 14px; }
+}
+
+/* CROSSWORD - LETTER STATES */
+
+#gameView .crossword-square.active {
+    background: linear-gradient(145deg, #ffe66d, #ffc329);
+    color: #392600;
+    border: 2px solid #e9a900;
+}
+
+#gameView .crossword-square.filled {
+    background: linear-gradient(145deg, #63c9f5, #298acb);
+    color: #ffffff;
+    border-color: #b9eaff;
+}
+
+#gameView .crossword-square.selected {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+#gameView .crossword-square.correct {
+    background: #22c55e;
+    color: white;
+    border-color: #86efac;
+}
+
+#gameView .crossword-square.incorrect {
+    background: #ef4444;
+    color: white;
+    border-color: #fca5a5;
+}
+
+/* CROSSWORD VALIDATION STATES */
+
+#gameView .crossword-square.active.empty {
+    background: linear-gradient(145deg, #ffe66d, #ffc329);
+    color: #392600;
+    border-color: #e9a900;
+}
+
+#gameView .crossword-square.active.correct {
+    background: #22c55e;
+    color: white;
+    border-color: #86efac;
+}
+
+#gameView .crossword-square.active.incorrect {
+    background: #ef4444;
+    color: white;
+    border-color: #fca5a5;
+}
+
+#gameView .crossword-square.active.filled:not(.correct):not(.incorrect) {
+    background: #298acb;
+    color: white;
+    border-color: #b9eaff;
+}
+
+/* CROSSWORD WORD-BY-WORD */
+
+#gameView .crossword-square.active.selected {
+    background: #38bdf8;
+    border: 2px solid #e0f2fe;
+    outline: none;
+}
+
+#gameView .crossword-square.active.correct {
+    background: #22c55e;
+    color: white;
+    border-color: #86efac;
+}
+
+#gameView .crossword-square.active.filled {
+    color: white;
+    font-weight: 900;
+}
+
+#gameView .crossword-clues {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 18px auto;
+}
+
+#gameView .crossword-clues button {
+    font-size: 12px;
+    text-align: left;
+    margin: 0 !important;
+}
+
+#gameView .crossword-clues button:disabled {
+    background: #166534;
+    color: #bbf7d0;
+    opacity: 1;
+}
+
+/* LEVEL 4 - CROSSWORD FIX */
+
+#gameView .crossword-board {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+
+#gameView .crossword-scroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 12px 0;
+}
+
+#gameView .real-crossword-grid {
+    display: grid;
+    gap: 3px;
+    width: max-content;
+    max-width: none;
+}
+
+#gameView .crossword-square {
+    width: 34px;
+    height: 34px;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
+#gameView .crossword-square:not(.active) {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+#gameView .crossword-square.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+#gameView .crossword-square.active.selected {
+    background: #38bdf8;
+    color: white;
+    border: 2px solid #e0f2fe;
+}
+
+#gameView .crossword-square.active.correct {
+    background: #22c55e;
+    color: white;
+    border: 2px solid #86efac;
+}
+
+#gameView .crossword-clues {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+#gameView .crossword-clues button {
+    white-space: normal;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    #gameView .crossword-scroll {
+        overflow-x: auto;
+    }
+}
+
+/* CROSSWORD PROGRESS */
+
+.crossword-progress {
+    max-width: 450px;
+    margin: 15px auto 22px;
+}
+
+.crossword-progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 9px;
+    color: #f8fafc;
+    font-size: 14px;
+}
+
+.crossword-progress-track {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#crosswordProgressFill {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #86efac);
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+/* LEVEL 2 - CENTERED LETTERS */
+
+#gameView .letter-game-center {
+    width: min(100%, 560px);
+    margin: 20px auto;
+    padding: 25px 18px;
+    background: linear-gradient(135deg, #d9f3ff, #a8e0ee);
+    border: 2px solid white;
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+
+#gameView .letter-game-center .letter-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+#gameView .letter-game-center .letter-tile {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    flex: 0 0 58px;
+    font-size: 25px;
+    font-weight: 900;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    #gameView .letter-game-center {
+        padding: 12px;
+    }
+
+    #gameView .letter-game-center .letter-tile {
+        width: 43px;
+        height: 43px;
+        min-width: 43px;
+        flex-basis: 43px;
+        font-size: 20px;
+    }
+}
+
+/* PROJECT TEAM - HELP PAGE */
+
+.project-team {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.project-team h2 {
+    margin-bottom: 25px;
+}
+
+.team-role {
+    padding: 16px;
+    margin: 12px 0;
+    border-radius: 14px;
+    background: rgba(0, 190, 220, 0.08);
+    border: 1px solid rgba(0, 190, 220, 0.2);
+}
+
+.team-role h3 {
+    color: #00d9ff;
+    margin-bottom: 8px;
+}
+
+.team-role p {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.project-leader {
+    background: rgba(255, 193, 7, 0.1);
+    border-color: rgba(255, 193, 7, 0.4);
+}
+
+.project-leader h3 {
+    color: #ffc107;
+}
+/* PIE CHALLENGE — ENTREPRENEUR LEVEL THEMES (LEVEL 2–7)
+   Uses only the six entrepreneur portraits supplied by the user.
+   No gameplay logic is changed by this stylesheet.
+*/
+
+/* Each level has its own vibrant comic-book palette */
+#gameView[class*="pie-theme-level-"],
+#examView.pie-theme-level-6 {
+    --comic-blue: #06a9ef;
+    --comic-purple: #713ce0;
+    --comic-yellow: #ffdc23;
+    --portrait-left: none;
+    --portrait-right: none;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 22px 12px 65px;
+    background-color: var(--comic-blue);
+    background-image:
+            radial-gradient(circle at 51% 50%, #ffffffaa 0 10%, transparent 45%),
+            repeating-conic-gradient(from 0deg at 50% 48%, #ffffff18 0deg 10deg, #0048a832 10deg 19deg),
+            radial-gradient(#063a8b6a 1.5px, transparent 2px),
+            linear-gradient(125deg, var(--comic-blue), #2ad6ff 49%, var(--comic-purple));
+    background-size: auto, auto, 15px 15px, auto;
+}
+
+/* Portraits are decorative and never block the interactive UI */
+#gameView[class*="pie-theme-level-"]::before,
+#gameView[class*="pie-theme-level-"]::after,
+#examView.pie-theme-level-6::before,
+#examView.pie-theme-level-6::after {
+    content: "";
+    position: absolute;
+    top: 90px;
+    bottom: 30px;
+    width: min(27vw, 410px);
+    z-index: -1;
+    pointer-events: none;
+    background-position: center top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 10px 16px #06184385);
+}
+#gameView[class*="pie-theme-level-"]::before,
+#examView.pie-theme-level-6::before {
+    left: 0;
+    background-image: var(--portrait-left);
+}
+#gameView[class*="pie-theme-level-"]::after,
+#examView.pie-theme-level-6::after {
+    right: 0;
+    background-image: var(--portrait-right);
+}
+
+/* Portrait references correspond to the 6 supplied images. */
+#gameView.pie-theme-level-2 {
+    --comic-blue: #008ce9; --comic-purple: #6332df;
+    --portrait-left: url('../images/entrepreneurs/portrait-5.webp');
+    --portrait-right: url('../images/entrepreneurs/portrait-8.webp');
+}
+#gameView.pie-theme-level-3 {
+    --comic-blue: #12ace7; --comic-purple: #9c38de;
+    --portrait-left: url('../images/entrepreneurs/portrait-3.webp');
+    --portrait-right: url('../images/entrepreneurs/portrait-2.webp');
+}
+#gameView.pie-theme-level-4 {
+    --comic-blue: #067ddb; --comic-purple: #5921b3;
+    --portrait-left: url('../images/entrepreneurs/portrait-7.webp');
+    --portrait-right: url('../images/entrepreneurs/portrait-6.webp');
+}
+#gameView.pie-theme-level-5 {
+    --comic-blue: #09b6d8; --comic-purple: #ee6b7b;
+    --portrait-left: url('../images/entrepreneurs/portrait-5.webp');
+}
+#examView.pie-theme-level-6 {
+    --comic-blue: #186dde; --comic-purple: #7846db;
+    --portrait-right: url('../images/entrepreneurs/portrait-6.webp');
+}
+#gameView.pie-theme-level-7 {
+    --comic-blue: #056add; --comic-purple: #9b47e2;
+    --portrait-left: url('../images/entrepreneurs/portrait-7.webp');
+    --portrait-right: url('../images/entrepreneurs/portrait-8.webp');
+}
+
+/* A full-width page makes room for portraits */
+body:has(#gameView.active[class*="pie-theme-level-"]) .container,
+body:has(#examView.active.pie-theme-level-6) .container {
+    width: 100%; max-width: none; margin: 0; padding: 0;
+}
+
+/* The existing question card remains real, clickable HTML */
+#gameView[class*="pie-theme-level-"] .game-top,
+#gameView[class*="pie-theme-level-"] .progress-track {
+    width: min(94%, 800px);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+}
+#gameView[class*="pie-theme-level-"] .question-card {
+    position: relative;
+    z-index: 2;
+    width: min(64%, 800px);
+    max-width: 800px;
+    min-width: 570px;
+    margin: 0 auto 24px;
+    background: #fffcf7f5;
+    border: 5px solid #11142b;
+    border-radius: 24px;
+    box-shadow: 8px 9px 0 #11142b;
+    color: #12213b;
+}
+#gameView[class*="pie-theme-level-"] .question-badge {
+    background: #ffdf29;
+    color: #11162b;
+    border: 3px solid #11162b;
+    box-shadow: 3px 4px 0 #11162b;
+}
+#gameView[class*="pie-theme-level-"] #questionTitle { color: #082d4e; }
+#gameView[class*="pie-theme-level-"] #questionDescription { color: #163e57; }
+#gameView[class*="pie-theme-level-"] .game-top {
+    background: #063a61;
+    padding: 11px 16px;
+    border-radius: 13px;
+    border: 3px solid #11142b;
+}
+#gameView[class*="pie-theme-level-"] .game-top .secondary-btn { background: #ffdc23; }
+#gameView[class*="pie-theme-level-"] .game-progress { background: #ffffff; color: #13192a; }
+
+/* Level 6 has a separate embedded HTML exam, so frame it as a comic panel */
+#examView.pie-theme-level-6 > div { position: relative; z-index: 2; }
+#examView.pie-theme-level-6 iframe {
+    display: block;
+    width: min(65%, 820px) !important;
+    margin: 0 auto;
+    border: 5px solid #11142b !important;
+    background: white;
+    box-shadow: 7px 9px 0 #11142b;
+    border-radius: 18px !important;
+}
+
+/* Responsive, keep all answer buttons accessible */
+@media (max-width: 1100px) {
+    #gameView[class*="pie-theme-level-"] .question-card { width: 76%; min-width: 0; }
+    #gameView[class*="pie-theme-level-"]::before,
+    #gameView[class*="pie-theme-level-"]::after,
+    #examView.pie-theme-level-6::before,
+    #examView.pie-theme-level-6::after { width: 23vw; opacity: .73; }
+    #examView.pie-theme-level-6 iframe { width: 76% !important; }
+}
+@media (max-width: 680px) {
+    #gameView[class*="pie-theme-level-"] .question-card { width: 96%; padding: 18px 12px; }
+    #gameView[class*="pie-theme-level-"] .game-top,
+    #gameView[class*="pie-theme-level-"] .progress-track { width: 96%; }
+    #gameView[class*="pie-theme-level-"]::before,
+    #gameView[class*="pie-theme-level-"]::after,
+    #examView.pie-theme-level-6::before,
+    #examView.pie-theme-level-6::after { display: none; }
+    #examView.pie-theme-level-6 iframe { width: 98% !important; }
+}
+
+/* ===== comic(1).css (merged, original selectors kept) ===== */
+/* PIE Challenge — Comic Gaming Edition. Preserves original game selectors. */
+:root{--bg:#0874d2;--surface:#f8faff;--surface-light:#e6f6ff;--primary:#e62550;--primary-light:#bd1c41;--yellow:#ffda1e;--text:#101326;--muted:#475474;--success:#098c64;--danger:#d62334;--ink:#101325}
+body{font-family:'Nunito',sans-serif;background:radial-gradient(circle at 20% 30%,#48d0ff 0%,transparent 38%),radial-gradient(circle at 95% 78%,#bf65f5 0%,transparent 33%),linear-gradient(135deg,#0360bf,#11b3ef 56%,#2465d7);color:#11172b;min-height:100vh;background-attachment:fixed}
+body:before{content:'';position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(#0b1c59a5 1.25px,transparent 1.7px);background-size:15px 15px;opacity:.3;z-index:-1}
+h1,h2,h3,h4,.logo,.primary-btn,.secondary-btn,.level-card button,.bottom-nav,.comic-tag,.comic-pick-title{font-family:'Barlow Condensed',Impact,'Arial Black',sans-serif;font-weight:900;letter-spacing:.5px}
+.topbar{height:83px;position:relative;z-index:30;background:#11162b;border-bottom:5px solid #ffdb29;box-shadow:0 7px 0 #1012228c;padding:0 5%}.logo{font-size:clamp(22px,3vw,33px);font-style:italic;transform:rotate(-2deg);color:#ffda1e;text-shadow:2px 3px #ce2449}.logo span{color:#fff}.header-stats{gap:10px}.header-stats span{background:#ffdb29;color:#11172b;border:3px solid #0f1225;border-radius:12px;padding:9px 14px;box-shadow:3px 4px #000;font-weight:900}
+.container{max-width:1250px;width:92%;margin:26px auto 55px}.view{animation:comicEnter .35s both}@keyframes comicEnter{from{opacity:.5;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+.comic-hero{isolation:isolate;position:relative;min-height:445px;overflow:hidden;text-align:center;border:6px solid var(--ink);border-radius:27px;box-shadow:10px 12px 0 #101325;background:radial-gradient(circle at 50% 110%,#f8da29 0 6%,transparent 40%),linear-gradient(130deg,#008ee5 0%,#00c4f5 50%,#7539d3 100%);padding:42px 20px 28px}
+.comic-hero:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.21;background-image:radial-gradient(#0a1043 1.8px,transparent 2px);background-size:13px 13px}
+.comic-hero:after{content:'';position:absolute;left:50%;top:20%;width:740px;height:740px;transform:translateX(-50%) rotate(6deg);z-index:-1;clip-path:polygon(50% 0,59% 34%,81% 7%,73% 43%,100% 33%,76% 55%,96% 79%,67% 67%,64% 100%,48% 72%,25% 100%,34% 66%,1% 73%,24% 53%,5% 30%,36% 41%,28% 7%,49% 35%);background:#ffdc1b;filter:drop-shadow(5px 5px #101325)}
+.comic-tag{display:inline-block;background:#fff;color:#121424;padding:7px 16px;border:3px solid #111429;border-radius:6px;box-shadow:4px 4px #111429;transform:rotate(-2deg);font-size:clamp(12px,1.7vw,18px)}
+.comic-main-logo{margin:17px 0 4px;line-height:.85;transform:rotate(-5deg);filter:drop-shadow(7px 9px #0a092c)}
+.comic-main-logo span{display:block;color:#ffdf20;font:bold italic clamp(95px,18vw,195px)/.9 Impact,'Barlow Condensed',sans-serif;-webkit-text-stroke:5px #141221;text-shadow:4px 4px #eb1947,9px 10px #101122}
+.comic-main-logo em{display:block;color:#fff;font:900 italic clamp(50px,9vw,105px)/.9 'Barlow Condensed',Impact,sans-serif;-webkit-text-stroke:3px #111322;text-shadow:4px 5px #111322,7px 8px #f0143d}
+.comic-subtitle{display:inline-block;background:#ffe029;border:3px solid #111429;color:#0c0d19;font:900 clamp(15px,2.7vw,27px) 'Barlow Condensed',sans-serif;transform:rotate(-2deg);padding:5px 20px;box-shadow:5px 5px #121324;margin:20px auto 8px}
+.comic-description{font-size:clamp(13px,1.55vw,18px);font-weight:900;color:#11162a;line-height:1.6;text-shadow:1px 1px #fff7}
+.comic-play,.primary-btn{background:linear-gradient(#ff5261,#e81337);color:white;border:4px solid #101325;border-radius:16px;box-shadow:0 8px #7e1428,5px 12px #121327;font:900 27px 'Barlow Condensed',Impact,sans-serif;text-shadow:2px 3px #6d112a;transform:rotate(-2deg);padding:12px 45px;transition:transform .17s,filter .17s}.comic-play{font-size:45px;margin:20px 0 0}.comic-play:hover,.primary-btn:hover{transform:translateY(-5px) rotate(0deg);filter:brightness(1.12);box-shadow:0 11px #7e1428,5px 15px #121327}.comic-play:active,.primary-btn:active{transform:translateY(5px);box-shadow:0 2px #7e1428}.play-triangle{background:#fff;border:3px solid #111329;color:#121425;border-radius:10px;padding:0 8px;font-size:.7em;margin-right:12px}
+.comic-sticker{position:absolute;font-size:clamp(65px,9vw,130px);filter:drop-shadow(5px 5px #0c1048);pointer-events:none;animation:floatSticker 2.8s ease-in-out infinite alternate}.sticker-left{left:7%;top:27%;transform:rotate(-12deg)}.sticker-right{right:7%;top:29%;animation-delay:1s}@keyframes floatSticker{to{translate:0 -14px;rotate:7deg}}.comic-spark{position:absolute;color:#ffdd16;-webkit-text-stroke:2px #121428;font-size:80px;top:12%}.spark-a{left:19%}.spark-b{right:17%;top:6%}
+.hero-secondary-actions{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-top:22px}.hero-secondary-actions button,.hero-secondary-actions a{display:inline-block;padding:8px 17px;border:3px solid #101325;border-radius:10px;background:#fff;color:#151628;font-weight:900;text-decoration:none;box-shadow:3px 4px #111322;cursor:pointer;font-size:13px}
+.comic-pick-title{background:#ffdb23;border:4px solid #101325;width:max-content;max-width:100%;padding:7px 26px;font-size:29px;margin:28px auto 21px;transform:rotate(-2deg);box-shadow:5px 6px #121429}
+.features{gap:15px}.comic-feature{text-align:center;cursor:pointer;min-height:210px;border:5px solid #141427;border-radius:10px;box-shadow:7px 8px #141427;transform:skew(-3deg);color:#111326}.comic-feature:hover{transform:skew(-3deg) translateY(-6px);border-color:#121427}.comic-feature.orange{background:linear-gradient(135deg,#ff7926,#ffca18)}.comic-feature.purple{background:linear-gradient(135deg,#ce52fa,#8d35e5)}.comic-feature.aqua{background:linear-gradient(135deg,#17c3d7,#45f3ca)}.comic-feature span{font-size:65px;filter:drop-shadow(3px 4px #14142755)}.comic-feature h3{color:#fff;font-style:italic;font-size:clamp(26px,3.5vw,39px);-webkit-text-stroke:1px #141427;text-shadow:4px 5px #141427}.comic-feature p{display:inline-block;background:#fff;border:3px solid #121425;border-radius:20px;color:#0b1125!important;padding:9px 13px;font-weight:900;line-height:1.15;font-size:12px}
+.section-heading h1{display:inline-block;font-size:clamp(36px,5vw,64px);padding:7px 25px;background:#ffdb29;border:4px solid #14152a;transform:rotate(-2deg);box-shadow:6px 7px #111327;color:#111327}.section-heading p{color:#fff;text-shadow:1px 2px #11203d;font-weight:900;font-size:16px;margin-top:18px}
+.level-card,.question-card,.result-card,.profile-card,.help-card{border:5px solid #131529;border-radius:17px;background:#f8fbff;color:#16192e;box-shadow:7px 9px #121427;overflow:hidden}
+.level-card{position:relative;background:linear-gradient(135deg,#fff,#e8f7ff)}.level-card:nth-child(3n+1){border-top:13px solid #ff5c35}.level-card:nth-child(3n+2){border-top:13px solid #a63cfc}.level-card:nth-child(3n){border-top:13px solid #13cbd1}.level-card h3{font-size:29px;margin:0}.level-card h4{font-size:22px}.level-card p,.question-card>p,.result-card p,.profile-stats span{color:#42516d}.level-icon{font-size:57px}.level-status{background:#ffdd2c;color:#121327;font-weight:900;border:2px solid #101325}.level-card button,.secondary-btn{background:#ffdc24;color:#101325;border:3px solid #121425;border-radius:10px;box-shadow:3px 4px #111425;font:900 20px 'Barlow Condensed',sans-serif}.level-card button:hover:not(:disabled),.secondary-btn:hover{background:#fff19c;color:#131629}.level-card.locked{filter:grayscale(.65)}.level-card.locked button{background:#767b87}
+.question-card{padding:32px}.question-card h2{font-size:36px}.question-badge{background:#ffdd29;color:#111322;border:3px solid #121423;font-size:16px}.game-progress{background:#fff;border:3px solid #121425;padding:8px 16px;border-radius:9px}.game-progress span:last-child{color:#45516a}.progress-track{background:#12233f;border:3px solid #141626;height:18px}.progress-fill{background:linear-gradient(90deg,#ff4e42,#ffdd20)}
+.game-picture,.question-image{background:#e8f9ff}.question-image{border:3px solid #141529;border-radius:12px}.answer-slots,.word-answer-area{background:#d9f4ff;border:3px dashed #2381bc}.slot-placeholder{color:#355579}.letter-tile{border:3px solid #11162b;box-shadow:0 5px #12253e;color:#0a1930}.letter-tile:hover:not(:disabled){transform:translateY(-4px)}.answer-letter{border:2px solid #121628;color:#152236}.feedback.success{color:#008f59}.feedback.error{color:#cf2138}.odd-option{border:3px solid #141529;box-shadow:3px 4px #13162a}.odd-option.odd-selected{border-color:#141529}.hint-btn{background:#fff5af;color:#17172b;border:3px solid #151527}.result-score{color:#e1284c}.result-icon{font-size:85px}
+.profile-stats div{background:#e9f5ff;border:3px solid #121528}.profile-stats strong{color:#de2449}.help-card{margin:0 auto 20px;line-height:2.0}.help-card h2{font-size:30px}.help-card h3{font-size:24px}
+.bottom-nav{background:#101327;border-top:5px solid #ffdb1f;box-shadow:0 -4px #10132777;gap:clamp(8px,4vw,55px);padding:13px 10px}.bottom-nav button{color:#fff;font-size:26px;font-family:'Nunito',sans-serif;font-weight:900}.bottom-nav button:hover{color:#ffdd25}.bottom-nav button span{font-size:12px}.hidden{display:none!important}
+@media(max-width:850px){.comic-sticker{opacity:.45;filter:blur(.1px)}.comic-hero{min-height:415px}.features{grid-template-columns:repeat(3,minmax(0,1fr))}.comic-feature{min-height:190px;padding:12px 5px}.comic-feature h3{font-size:clamp(20px,3vw,29px)}.comic-feature p{font-size:11px}.levels-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.topbar{padding:0 3%;height:75px}.header-stats span{padding:7px;font-size:12px}.logo{font-size:20px}.container{width:93%;margin:19px auto}.comic-hero{padding:32px 12px;min-height:435px}.comic-main-logo span{-webkit-text-stroke:3px #111}.comic-main-logo em{-webkit-text-stroke:2px #111}.comic-description{font-size:14px}.comic-sticker{font-size:58px;opacity:.6}.sticker-left{left:0;top:34%}.sticker-right{right:0;top:34%}.comic-play{font-size:34px}.features,.levels-grid{grid-template-columns:1fr}.comic-feature{min-height:175px}.comic-feature h3{font-size:32px}.question-card{padding:20px 12px}.question-card h2{font-size:28px}.bottom-nav{gap:clamp(8px,4vw,30px)}.bottom-nav button span{font-size:10px}}
+
+/* ===== accueil(1).css (merged, original selectors kept) ===== */
+/* ACCUEIL — exact user-supplied comic illustration, with functioning HTML hotspots. */
+@media(min-width:761px){
+  body:has(#homeView.active){background:#069ce4;padding:0;overflow-x:hidden}
+  body:has(#homeView.active)::before{display:none}
+  body:has(#homeView.active)>.topbar,body:has(#homeView.active)>.bottom-nav{display:none}
+  body:has(#homeView.active)>.container{width:100%;max-width:none;margin:0}
+  .reference-accueil{position:relative;width:100%;aspect-ratio:1672 / 863;margin:0 auto;overflow:hidden;background:#058be0}
+  .reference-scene{display:block;width:100%;height:100%;object-fit:fill;pointer-events:none}
+  .mobile-comic-home{display:none}
+  .scene-hit{position:absolute;display:block;padding:0;border:0;background:transparent;color:transparent;cursor:pointer;z-index:4;border-radius:13px;transition:background .18s,box-shadow .18s,transform .18s}
+  .scene-hit span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .scene-hit:hover{background:#fff3;box-shadow:inset 0 0 0 4px #fff9;transform:scale(1.025)}
+  .scene-hit:focus-visible{outline:5px solid #fff200;outline-offset:4px;background:#fff3}
+  .hit-profile{left:1%;top:0.9%;width:22%;height:13%}
+  .hit-settings{right:0;top:.6%;width:6%;height:10%}
+  .hit-play{left:36%;top:35%;width:30%;height:17%;border-radius:35px;transform:rotate(-2deg)}
+  .hit-play:hover{transform:scale(1.035) rotate(-2deg)}
+  .hit-creativity{left:11%;top:60%;width:28%;height:32%;transform:rotate(-2deg)}
+  .hit-innovation{left:39%;top:60%;width:25%;height:32%}
+  .hit-entrepreneurship{left:64%;top:60%;width:26%;height:32%;transform:rotate(2deg)}
+  .hit-nav-profile{left:13.6%;bottom:.5%;width:12.9%;height:9%}
+  .hit-nav-rewards{left:27%;bottom:.5%;width:13.5%;height:9%}
+  .hit-nav-leaderboard{left:41%;bottom:.5%;width:19%;height:9%}
+  .hit-nav-events{left:60.5%;bottom:.5%;width:13.5%;height:9%}
+  .hit-nav-shop{left:74.5%;bottom:.5%;width:12%;height:9%}
+  .live-score{position:absolute;z-index:5;left:1.5%;bottom:3%;border:3px solid #131429;border-radius:100px;background:#ffe329;color:#121423;padding:7px 16px;font:900 clamp(12px,1.22vw,22px) 'Barlow Condensed',Impact,sans-serif;box-shadow:4px 5px #111326;pointer-events:none}
+  .replay-intro{position:absolute;z-index:5;right:1.4%;bottom:2%;background:#101429;color:#fff;border:3px solid #fff;border-radius:8px;font-size:clamp(10px,.85vw,15px);padding:7px 10px;text-decoration:none;font-weight:900;box-shadow:3px 3px #111}
+  .replay-intro:hover{background:#e92843}
+}
+@media(max-width:760px){.reference-accueil{display:none}.mobile-comic-home{display:block}}
+
+/* ===== level1-comic(1).css (merged, original selectors kept) ===== */
+/* Comic panels for Level 1 / Questions 1–3. Side artwork is decorative only.
+   All labels, letter tiles, controls, scoring and question data stay interactive. */
+#gameView.level1-comic-scene {position:relative;isolation:isolate;min-height:660px}
+#gameView .level1-side-art {position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:18px;overflow:hidden;background:linear-gradient(120deg,#0068da,#00cafa 54%,#214ed8);border:4px solid #101b33;box-shadow:6px 8px 0 #101b33}
+#gameView .level1-side-left,#gameView .level1-side-right {position:absolute;top:0;bottom:0;width:29%;background-position:center;background-size:cover;filter:saturate(1.1);animation:comicFloat 7s ease-in-out infinite alternate}
+#gameView .level1-side-left{left:0;background-position:right center}
+#gameView .level1-side-right{right:0;background-position:left center;animation-delay:-3.5s}
+@keyframes comicFloat {from {transform:scale(1.01)}to {transform:scale(1.055)}}
+#gameView.level1-comic-scene .game-top,#gameView.level1-comic-scene .progress-track {position:relative;z-index:2;max-width:760px;margin-left:auto;margin-right:auto}
+#gameView.level1-comic-scene .game-top{background:#034461;border:4px solid #0e1933;border-radius:13px;box-shadow:4px 5px #10182a;padding:9px 12px;margin-top:12px}
+#gameView.level1-comic-scene .game-top .secondary-btn {background:#ffda18;color:#111a2b}
+#gameView.level1-comic-scene .game-progress{color:#101a2e;background:#fff}
+#gameView.level1-comic-scene .progress-track{margin-top:12px;margin-bottom:12px;background:#123b61}
+#gameView.level1-comic-scene .question-card {position:relative;z-index:2;width:min(760px,68%);max-width:760px;margin:0 auto 22px;border:5px solid #111a35;border-radius:25px;background:linear-gradient(150deg,#fff,#f5f9ff 75%,#eaf6ff);box-shadow:7px 9px #101426;padding:24px 20px;color:#13223c}
+#gameView.level1-comic-scene .question-badge{color:#14162f;background:#ffdf25;font-size:17px;padding:7px 25px;border-radius:50px;box-shadow:3px 4px #0e1c31}
+#gameView.level1-comic-scene #questionTitle {font-size:clamp(27px,3.3vw,48px);font-style:italic;margin:13px 0 7px;line-height:1}
+#gameView.level1-comic-scene #questionDescription {font-size:clamp(13px,1.6vw,18px);color:#23344d;font-weight:900;line-height:1.35}
+#gameView.level1-comic-scene .question-image{max-width:460px;height:128px;background:#c9efff;object-fit:contain;border:4px solid #114669;box-shadow:3px 5px #111d35;padding:5px}
+#gameView.level1-comic-scene .question-content{margin:17px 0 9px}
+#gameView.level1-comic-scene .answer-slots{background:#003a55;border:3px solid #0a1b32;min-height:63px;margin:8px auto 12px;color:#fff}
+#gameView.level1-comic-scene .slot-placeholder{color:#e0f6ff}
+#gameView.level1-comic-scene .letter-grid{max-width:410px;gap:6px;grid-template-columns:repeat(6,minmax(0,1fr))}
+#gameView.level1-comic-scene .letter-tile{font-size:20px;border-radius:9px;min-width:0}
+#gameView.level1-comic-scene .letter-actions{margin-top:15px}
+#gameView.level1-comic-scene .game-actions{margin-top:10px}
+#gameView.level1-comic-scene #checkBtn,#gameView.level1-comic-scene #nextBtn{background:linear-gradient(#ffe925,#ffbe00);color:#10182b;text-shadow:none}
+#gameView.level1-comic-scene #hintBtn{background:#7020dc;color:#fff;border:3px solid #15132e}
+@media(max-width:980px){
+ #gameView.level1-comic-scene .question-card{width:76%;padding:20px 12px}
+ #gameView .level1-side-left,#gameView .level1-side-right{width:20%}
+}
+@media(max-width:680px){
+ #gameView.level1-comic-scene .question-card{width:96%;padding:19px 9px;background:rgba(255,255,255,.97)}
+ #gameView.level1-comic-scene .game-top,#gameView.level1-comic-scene .progress-track{width:96%}
+ #gameView .level1-side-left,#gameView .level1-side-right{width:32%;opacity:.4;filter:blur(1px)}
+ #gameView.level1-comic-scene #questionDescription{font-size:13px}
+ #gameView.level1-comic-scene .letter-grid{max-width:370px}
+}
+@media(prefers-reduced-motion:reduce){#gameView .level1-side-left,#gameView .level1-side-right{animation:none}}
+
+
+/* ==========================================
+   PIE CHALLENGE - LEVEL 1 QUESTION 1
+   FULLSCREEN COMIC BACKGROUND
+========================================== */
+
+/* Full-screen game area */
+body:has(#gameView.active) {
+ min-height: 100vh;
+ background: #16b5ef;
+ overflow-x: hidden;
+}
+
+/* Remove the narrow page container */
+body:has(#gameView.active) .container {
+ width: 100% !important;
+ max-width: none !important;
+ margin: 0 !important;
+ padding: 0 !important;
+}
+
+/* Full-width game section */
+#gameView.active {
+ width: 100% !important;
+ max-width: none !important;
+ min-height: 100vh;
+ margin: 0 auto;
+ padding: 20px 15px 45px;
+
+ background-color: #099ce8;
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+}
+
+/* Game navigation header */
+#gameView .game-top {
+ position: relative;
+ z-index: 2;
+
+ width: min(100%, 900px);
+ margin: 0 auto 18px;
+
+ padding: 15px 20px;
+ border-radius: 16px;
+ background: #034663;
+ border: 3px solid #001b35;
+}
+
+/* Main white game platform */
+#gameView .question-card {
+ position: relative;
+ z-index: 2;
+
+ width: min(100%, 700px) !important;
+ max-width: none !important;
+
+ margin: 0 auto;
+ padding: 30px 35px;
+
+ background: linear-gradient(
+         160deg,
+         #ffffff 0%,
+         #f1f7ff 100%
+ );
+
+ border: 4px solid #062846;
+ border-radius: 28px;
+
+ box-shadow:
+         8px 10px 0 rgba(0, 30, 60, 0.35),
+         0 15px 35px rgba(0, 0, 0, 0.2);
+
+ color: #08263b;
+}
+
+/* Question heading */
+#gameView .question-card h2 {
+ color: #07334f;
+ font-size: clamp(26px, 3vw, 42px);
+ font-weight: 900;
+ text-shadow: none;
+}
+
+/* Question description */
+#gameView #questionDescription {
+ color: #103b59;
+ font-weight: 700;
+ font-size: 17px;
+}
+
+/* Image inside question */
+#gameView .question-image {
+ width: 100%;
+ max-width: 470px;
+ height: 190px;
+ object-fit: contain;
+ border-radius: 15px;
+}
+
+/* Letters grid */
+#gameView .letter-grid {
+ width: 100%;
+ max-width: 520px;
+ margin: 0 auto;
+ gap: 9px;
+}
+
+/* Letters */
+#gameView .letter-tile {
+ font-size: 23px;
+ border-radius: 10px;
+}
+
+/* Answer area */
+#gameView .answer-slots {
+ width: 100%;
+ max-width: 570px;
+ min-height: 70px;
+ background: #03415a;
+ border: 2px solid #0d7998;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+ #gameView.active {
+  padding: 12px 8px 35px;
+  background-position: center;
+ }
+
+ #gameView .question-card {
+  width: 96% !important;
+  padding: 20px 12px;
+ }
+
+ #gameView .game-top {
+  width: 96%;
+  padding: 10px;
+ }
+
+ #gameView .question-image {
+  height: 150px;
+ }
+
+ #gameView .letter-tile {
+  font-size: 18px;
+ }
+}
+
+/* ============================================================
+   LEVEL 1 BACKGROUND FIX — automatically linked to app.js
+   app.js adds level1-comic-scene and data-comic-question="1/2/3".
+   Preserve these selectors, image paths and the original JS.
+   ============================================================ */
+body:has(#gameView.active.level1-comic-scene) {
+ background: #079fe7;
+ overflow-x: hidden;
+}
+body:has(#gameView.active.level1-comic-scene) > .container {
+ width: 100% !important;
+ max-width: none !important;
+ margin: 0 !important;
+ padding: 0 !important;
+}
+#gameView.active.level1-comic-scene {
+ position: relative;
+ isolation: isolate;
+ min-height: 100vh;
+ width: 100% !important;
+ max-width: none !important;
+ margin: 0 !important;
+ padding: 20px 15px 50px !important;
+ background-color: #079fe7;
+ background-repeat: no-repeat !important;
+ background-position: center center !important;
+ background-size: cover !important;
+}
+#gameView.active.level1-comic-scene[data-comic-question="1"] {
+ background-image: url("../images/level1-bg-q1.webp") !important;
+}
+#gameView.active.level1-comic-scene[data-comic-question="2"] {
+ background-image: url("../images/level1-bg-q2.webp") !important;
+}
+#gameView.active.level1-comic-scene[data-comic-question="3"] {
+ background-image: url("../images/level1-bg-q3.webp") !important;
+}
+#gameView.level1-comic-scene > .level1-side-art,
+#gameView.level1-comic-scene > .entrepreneur-backdrop {
+ display: none !important;
+}
+#gameView.level1-comic-scene .question-card {
+ width: min(700px, 95%) !important;
+ max-width: 700px !important;
+ margin: 16px auto 26px !important;
+ background: rgba(255,255,255,.97) !important;
+ border: 5px solid #10152e;
+ border-radius: 24px;
+ box-shadow: 8px 10px 0 #10152e;
+ padding: 24px 24px;
+ position: relative;
+ z-index: 2;
+}
+#gameView.level1-comic-scene .game-top,
+#gameView.level1-comic-scene .progress-track {
+ position: relative;
+ z-index: 2;
+ width: min(900px, 96%) !important;
+ max-width: 900px;
+ margin-left: auto !important;
+ margin-right: auto !important;
+}
+@media(max-width:700px) {
+ #gameView.active.level1-comic-scene {
+  padding: 12px 7px 35px !important;
+  background-position: center center !important;
+ }
+ #gameView.level1-comic-scene .question-card {
+  width: 97% !important;
+  padding: 16px 10px !important;
+ }
+}
+
+/* =====================================
+   LEVEL 1 — BIG QUESTION IMAGE
+===================================== */
+
+#gameView.level1-comic-scene .question-image {
+ display: block;
+
+ width: 100% !important;
+ max-width: 100% !important;
+ height: 280px !important;
+
+ object-fit: cover !important;
+ object-position: center;
+
+ padding: 0 !important;
+ margin: 0 auto;
+
+ background: #d9f4ff;
+
+ border: 4px solid #114669;
+ border-radius: 15px;
+
+ box-shadow: 3px 5px 0 #111d35;
+}
+
+/* Image container */
+#gameView.level1-comic-scene .game-picture {
+ width: 100%;
+ max-width: 650px;
+ margin: 15px auto;
+}
+
+/* Mobile */
+@media (max-width: 680px) {
+ #gameView.level1-comic-scene .question-image {
+  height: 200px !important;
+ }
+}
+/* ==========================================
+   LEVEL 1 — BIG WHITE LETTER PANEL
+========================================== */
+
+/* Cadre principal: bleu -> blanc */
+#gameView.level1-comic-scene .letter-game-center {
+ width: 100% !important;
+ max-width: 750px !important;
+ min-height: 480px;
+
+ margin: 15px auto 0 !important;
+ padding: 30px 20px 115px !important;
+
+ background: #ffffff !important;
+ border: 4px solid #102b45;
+ border-radius: 22px;
+
+ display: flex !important;
+ align-items: center !important;
+ justify-content: center !important;
+
+ box-shadow: 5px 7px 0 #102b45;
+}
+
+/* Grille des lettres */
+#gameView.level1-comic-scene .letter-grid {
+ display: grid !important;
+
+ grid-template-columns: repeat(6, 70px) !important;
+ gap: 12px !important;
+
+ width: max-content !important;
+ max-width: 100% !important;
+
+ margin: 0 auto !important;
+ justify-content: center !important;
+ align-content: center !important;
+
+ background: transparent !important;
+}
+
+/* Carrés des lettres plus grands */
+#gameView.level1-comic-scene .letter-tile {
+ width: 70px !important;
+ height: 70px !important;
+
+ min-width: 0 !important;
+ padding: 0 !important;
+
+ font-size: 29px !important;
+ font-weight: 900 !important;
+
+ border: 3px solid #102b45;
+ border-radius: 12px;
+
+ box-shadow: 0 5px 0 #102b45;
+}
+
+/* Boutons à l'intérieur du cadre */
+#gameView.level1-comic-scene .letter-actions {
+ position: relative;
+ z-index: 3;
+
+ display: flex !important;
+ align-items: center;
+ justify-content: center;
+ flex-wrap: wrap;
+ gap: 15px;
+
+ margin: -90px auto 35px !important;
+ padding: 0 12px;
+}
+
+/* Boutons plus grands */
+#gameView.level1-comic-scene .letter-actions button {
+ padding: 14px 22px !important;
+ font-size: 21px !important;
+ border-radius: 12px;
+}
+
+/* Mobile */
+@media (max-width: 680px) {
+ #gameView.level1-comic-scene .letter-game-center {
+  min-height: 350px;
+  padding: 20px 10px 95px !important;
+ }
+
+ #gameView.level1-comic-scene .letter-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  width: 100% !important;
+  gap: 5px !important;
+ }
+
+ #gameView.level1-comic-scene .letter-tile {
+  width: 100% !important;
+  height: 48px !important;
+  font-size: 19px !important;
+ }
+
+ #gameView.level1-comic-scene .letter-actions {
+  margin-top: -75px !important;
+ }
+
+ #gameView.level1-comic-scene .letter-actions button {
+  font-size: 15px !important;
+  padding: 10px 12px !important;
+ }
+}
+
+/* ===== levels-entrepreneurs(1).css (merged, original selectors kept) ===== */
+
+/* ==========================================
+   PIE CHALLENGE — FULL BACKGROUNDS
+   LEVELS 2 TO 7
+   ONE COMPLETE IMAGE PER LEVEL
+========================================== */
+
+/* 1. BACKGROUND IMAGES */
+
+#gameView.pie-theme-level-2 {
+    --level-image: url("../images/background/background1.webp");
+}
+
+#gameView.pie-theme-level-3 {
+    --level-image: url("../images/background/background2.webp");
+}
+
+#gameView.pie-theme-level-4 {
+    --level-image: url("../images/background/background3.webp");
+}
+
+#gameView.pie-theme-level-5 {
+    --level-image: url("../images/background/background4.webp");
+}
+
+#examView.pie-theme-level-6 {
+    --level-image: url("../images/background/background5.webp");
+}
+
+#gameView.pie-theme-level-7 {
+    --level-image: url("../images/background/background6.webp");
+}
+
+/* 2. FULL WIDTH CONTAINER */
+
+body:has(#gameView.active[class*="pie-theme-level-"]) .container,
+body:has(#examView.active.pie-theme-level-6) .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 3. FULL SCREEN BACKGROUND */
+
+#gameView.active[class*="pie-theme-level-"],
+#examView.active.pie-theme-level-6 {
+    position: relative !important;
+    isolation: isolate;
+
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 100vh !important;
+
+    margin: 0 !important;
+    padding: 22px 12px 100px !important;
+
+    overflow: visible !important;
+
+    background-color: #079ee9 !important;
+    background-image: var(--level-image) !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+}
+
+/* 4. REMOVE OLD BACKGROUNDS */
+
+#gameView[class*="pie-theme-level-"]::before,
+#gameView[class*="pie-theme-level-"]::after,
+#examView.pie-theme-level-6::before,
+#examView.pie-theme-level-6::after {
+    content: none !important;
+    display: none !important;
+}
+
+#gameView[class*="pie-theme-level-"] .bg-left,
+#gameView[class*="pie-theme-level-"] .bg-right,
+#gameView[class*="pie-theme-level-"] .entrepreneur-backdrop,
+#gameView[class*="pie-theme-level-"] .level1-side-art,
+body:has(#gameView.active[class*="pie-theme-level-"])::before,
+body:has(#examView.active.pie-theme-level-6)::before {
+    display: none !important;
+}
+
+/* 5. CENTER GAME ELEMENTS */
+
+#gameView[class*="pie-theme-level-"] .game-top,
+#gameView[class*="pie-theme-level-"] .progress-track,
+#gameView[class*="pie-theme-level-"] .question-card {
+    position: relative !important;
+    z-index: 2 !important;
+
+    width: min(52vw, 820px) !important;
+    max-width: 820px !important;
+    min-width: 0 !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 6. GAME TOP */
+
+#gameView[class*="pie-theme-level-"] .game-top {
+    background: #043d63f0 !important;
+
+    border: 4px solid #10152d !important;
+    border-radius: 15px !important;
+
+    box-shadow: 4px 5px 0 #10152d !important;
+
+    padding: 11px 14px !important;
+}
+
+#gameView[class*="pie-theme-level-"] .game-top .secondary-btn {
+    background: #ffdf24 !important;
+    color: #11182e !important;
+}
+
+#gameView[class*="pie-theme-level-"] .game-progress {
+    color: #14243c !important;
+    background: white !important;
+
+    border-radius: 9px;
+    padding: 7px 12px;
+}
+
+/* 7. PROGRESS BAR */
+
+#gameView[class*="pie-theme-level-"] .progress-track {
+    height: 15px !important;
+
+    margin-top: 14px !important;
+    margin-bottom: 18px !important;
+
+    background: #092b48 !important;
+
+    border: 2px solid #10152d !important;
+    border-radius: 30px !important;
+}
+
+/* 8. QUESTION CARD */
+
+#gameView[class*="pie-theme-level-"] .question-card {
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+
+    padding: 26px 22px 32px !important;
+
+    background: rgba(255,255,255,.95) !important;
+
+    border: 5px solid #10152d !important;
+    border-radius: 24px !important;
+
+    box-shadow: 8px 9px 0 #10152d !important;
+
+    color: #10243c !important;
+    text-align: center !important;
+}
+
+#gameView[class*="pie-theme-level-"] .question-badge {
+    background: #ffdf25 !important;
+    color: #11182e !important;
+
+    border: 3px solid #10152d !important;
+    border-radius: 30px !important;
+}
+
+#gameView[class*="pie-theme-level-"] #questionTitle {
+    color: #08344f !important;
+    font-size: clamp(27px, 2.8vw, 40px) !important;
+}
+
+#gameView[class*="pie-theme-level-"] #questionDescription {
+    color: #17435c !important;
+    font-size: 16px !important;
+    font-weight: 800 !important;
+}
+
+/* 9. LETTER GAME */
+
+/* Remove the decorative ABC image in Level 2 */
+#gameView.pie-theme-level-2 .game-picture {
+    display: none !important;
+}
+
+/* Answer box */
+#gameView[class*="pie-theme-level-"] .answer-slots {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+
+    gap: 6px !important;
+
+    width: 100% !important;
+    max-width: 680px !important;
+    min-height: 68px !important;
+
+    margin: 14px auto !important;
+
+    color: #fff !important;
+    background: #03415a !important;
+
+    border: 3px solid #0d7998 !important;
+    border-radius: 13px !important;
+}
+
+#gameView[class*="pie-theme-level-"] .slot-placeholder {
+    color: #e1f6ff !important;
+}
+
+/* Letter container */
+#gameView[class*="pie-theme-level-"] .letter-game-center {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    max-width: 700px !important;
+    min-height: 280px !important;
+
+    margin: 15px auto !important;
+    padding: 18px 12px !important;
+
+    background: rgba(234,249,255,.95) !important;
+
+    border: 3px solid #102b45 !important;
+    border-radius: 17px !important;
+}
+
+/* Letter grid */
+#gameView[class*="pie-theme-level-"] .letter-grid {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 64px)) !important;
+
+    justify-content: center !important;
+    gap: 9px !important;
+
+    width: max-content !important;
+    max-width: 100% !important;
+
+    margin: 0 auto !important;
+}
+
+/* Letter tiles */
+#gameView[class*="pie-theme-level-"] .letter-tile {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 64px !important;
+
+    padding: 0 !important;
+
+    font-size: 26px !important;
+    font-weight: 900 !important;
+
+    border: 3px solid #102b45 !important;
+    border-radius: 10px !important;
+}
+
+/* 10. BUTTONS */
+
+#gameView[class*="pie-theme-level-"] .letter-actions,
+#gameView[class*="pie-theme-level-"] .game-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+
+    gap: 12px !important;
+    margin: 16px auto !important;
+}
+
+#gameView[class*="pie-theme-level-"] #checkBtn,
+#gameView[class*="pie-theme-level-"] #nextBtn {
+    background: linear-gradient(#ffe927, #ffc019) !important;
+    color: #10243c !important;
+    text-shadow: none !important;
+}
+
+#gameView[class*="pie-theme-level-"] #hintBtn {
+    background: #7226d9 !important;
+    color: white !important;
+}
+
+/* 11. LEVEL 6 — IFRAME */
+
+#examView.pie-theme-level-6 > div {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+#examView.pie-theme-level-6 iframe {
+    display: block !important;
+
+    width: min(52vw, 820px) !important;
+    max-width: 820px !important;
+
+    height: 82vh !important;
+    min-height: 600px !important;
+
+    margin: 0 auto !important;
+
+    background: white !important;
+
+    border: 5px solid #10152d !important;
+    border-radius: 20px !important;
+
+    box-shadow: 8px 9px 0 #10152d !important;
+}
+
+/* 12. TABLET */
+
+@media (max-width: 1250px) {
+
+    #gameView[class*="pie-theme-level-"] .game-top,
+    #gameView[class*="pie-theme-level-"] .progress-track,
+    #gameView[class*="pie-theme-level-"] .question-card {
+        width: 74% !important;
+    }
+
+    #examView.pie-theme-level-6 iframe {
+        width: 74% !important;
+    }
+}
+
+/* 13. MOBILE */
+
+@media (max-width: 700px) {
+
+    #gameView.active[class*="pie-theme-level-"],
+    #examView.active.pie-theme-level-6 {
+        padding: 12px 8px 85px !important;
+    }
+
+    #gameView[class*="pie-theme-level-"] .game-top,
+    #gameView[class*="pie-theme-level-"] .progress-track,
+    #gameView[class*="pie-theme-level-"] .question-card {
+        width: 96% !important;
+    }
+
+    #gameView[class*="pie-theme-level-"] .question-card {
+        padding: 18px 10px !important;
+        background: rgba(255,255,255,.98) !important;
+    }
+
+    #gameView[class*="pie-theme-level-"] .letter-game-center {
+        min-height: 220px !important;
+        padding: 12px 5px !important;
+    }
+
+    #gameView[class*="pie-theme-level-"] .letter-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+        width: 100% !important;
+        gap: 5px !important;
+    }
+
+    #gameView[class*="pie-theme-level-"] .letter-tile {
+        height: 44px !important;
+        font-size: 18px !important;
+    }
+
+    #gameView[class*="pie-theme-level-"] #questionTitle {
+        font-size: 27px !important;
+    }
+
+    #examView.pie-theme-level-6 iframe {
+        width: 98% !important;
+        height: 78vh !important;
+        min-height: 550px !important;
+    }
+}
+
+/* ===== levels-4-to-7-fix(1).css (merged, original selectors kept) ===== */
+/* ================================================================
+   PIE CHALLENGE | COMIC GAMEPLAY POLISH
+   LEVEL 4 (CROSSWORD) • LEVEL 5 (ODD ONE) • LEVEL 7 (MYSTERY)
+   LEVEL 6 (IFRAME SHELL)
+   Link LAST in game.html, after the full-background and L3 CSS.
+   The images and full-page backgrounds are preserved.
+   Compatible: pie-theme-level-N / level-bg-N
+   ================================================================ */
+
+/* COMMON — levels 4/5/7 only, leave level 1–3 unchanged */
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) .question-card {
+  box-sizing: border-box !important;
+  width: min(90%, 850px) !important;
+  max-width: 850px !important;
+  min-width: 0 !important;
+  margin: 12px auto 34px !important;
+  padding: clamp(16px,2.5vw,32px) !important;
+  background: rgba(255,255,255,.97) !important;
+  border: 5px solid #111a32 !important;
+  border-radius: 24px !important;
+  box-shadow: 8px 10px 0 #111a32 !important;
+  color: #102942 !important;
+  overflow: visible !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) :is(.game-top,.progress-track) {
+  width: min(90%,850px) !important;
+  max-width: 850px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) #questionTitle {
+  color: #073654 !important;
+  font-size: clamp(28px,3.2vw,42px) !important;
+  line-height: 1.13 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) :is(#questionDescription,.mode-instruction) {
+  color: #244b6b !important;
+  font-size: clamp(14px,1.25vw,17px) !important;
+  font-weight: 800 !important;
+  line-height: 1.45 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) :is(#answerArea,.question-content) {
+  width: 100% !important;
+  max-width: 760px !important;
+  margin: 15px auto !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) :is(#checkBtn,#nextBtn) {
+  color: #14253b !important;
+  background: linear-gradient(#ffe66a,#ffbe16) !important;
+  border: 3px solid #17213c !important;
+  box-shadow: 0 5px #17213c !important;
+  text-shadow: none !important;
+  padding: 12px 22px !important;
+  font-size: 19px !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) #hintBtn {
+  background: #742bde !important;
+  color: #fff !important;
+  border: 3px solid #17213c !important;
+  padding: 12px 18px !important;
+  font-size: 17px !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) .game-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  margin: 22px auto 10px !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) #feedback {
+  min-height: 26px !important;
+  font-weight: 900 !important;
+  color: #173b59 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) #feedback.success { color: #087a50 !important; }
+#gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) #feedback.error { color: #c32042 !important; }
+
+/* =============== LEVEL 4 — LES MOTS CROISÉS =============== */
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-board {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 12px auto 0 !important;
+  padding: 20px 14px !important;
+  border: 3px solid #153550 !important;
+  border-radius: 19px !important;
+  background: #f1faff !important;
+  overflow: visible !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-board h3 {
+  color: #123653 !important;
+  font-size: clamp(22px,2.4vw,30px) !important;
+  margin: 4px auto 8px !important;
+}
+/* Grid cells are 34px wide in app.js. Keep that geometry to prevent overlap. */
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-scroll {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  padding: 15px 8px 20px !important;
+  margin: 12px auto !important;
+  border-radius: 14px !important;
+  background: #e2f4ff !important;
+  border: 2px solid #aad5f0 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .real-crossword-grid {
+  display: grid !important;
+  gap: 3px !important;
+  max-width: none !important;
+  /* app.js assigns columns/rows and width inline: do not override */
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-square {
+  box-sizing: border-box !important;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 0 !important;
+  border-radius: 6px !important;
+  font-size: 15px !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-square:not(.active) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-square.active {
+  background: linear-gradient(#ffe97b,#ffc51c) !important;
+  color: #23344a !important;
+  border: 2px solid #9e7314 !important;
+  box-shadow: 0 2px #876011 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-square.active.selected {
+  background: #35baf4 !important;
+  color: #0a233c !important;
+  border-color: #146993 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-square.active.correct {
+  background: #55d66e !important;
+  color: #073e21 !important;
+  border-color: #238748 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-clues {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 11px !important;
+  margin: 20px auto !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-clues button {
+  min-width: 0 !important;
+  min-height: 60px !important;
+  margin: 0 !important;
+  padding: 10px 13px !important;
+  font: 800 14px/1.3 'Nunito',system-ui,sans-serif !important;
+  white-space: normal !important;
+  text-align: left !important;
+  overflow-wrap: anywhere !important;
+  color: #142b44 !important;
+  background: #ffdd35 !important;
+  border: 2px solid #122740 !important;
+  box-shadow: 0 3px #122740 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-clues button:disabled {
+  color: #074127 !important;
+  background: #a9edb9 !important;
+  opacity: 1 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-keyboard {
+  display: grid !important;
+  grid-template-columns: repeat(9,minmax(0,1fr)) !important;
+  gap: 7px !important;
+  width: min(100%,570px) !important;
+  margin: 22px auto 12px !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-key {
+  min-width: 0 !important;
+  min-height: 44px !important;
+  padding: 0 !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  color: #072741 !important;
+  background: linear-gradient(#b0effb,#49b9ed) !important;
+  border: 2px solid #134466 !important;
+  border-radius: 9px !important;
+  box-shadow: 0 3px #134466 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .letter-actions button {
+  color: #fff !important;
+  background: #075779 !important;
+  border: 3px solid #12304c !important;
+  box-shadow: 0 4px #12304c !important;
+  padding: 11px 14px !important;
+  font-weight: 900 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-progress {
+  width: min(100%,590px) !important;
+  margin: 15px auto 10px !important;
+  padding: 13px 15px !important;
+  background: #f2faff !important;
+  border-radius: 14px !important;
+  border: 2px solid #153b59 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-progress-info {
+  color: #163550 !important;
+  font-weight: 900 !important;
+}
+#gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-progress-track {
+  background: #cbddec !important;
+}
+
+/* =============== LEVEL 5 — TROUVE L'INTRUS =============== */
+#gameView:is(.pie-theme-level-5,.level-bg-5) .question-content .game-picture {
+  display: none !important;
+}
+#gameView:is(.pie-theme-level-5,.level-bg-5) .odd-options {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 15px !important;
+  width: min(100%,650px) !important;
+  max-width: 650px !important;
+  margin: 16px auto !important;
+  padding: 22px !important;
+  background: #f0faff !important;
+  border: 3px solid #153550 !important;
+  border-radius: 20px !important;
+}
+#gameView:is(.pie-theme-level-5,.level-bg-5) .odd-option {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 94px !important;
+  padding: 13px 10px !important;
+  font: 900 clamp(16px,1.45vw,21px)/1.2 'Nunito',system-ui,sans-serif !important;
+  color: #112b44 !important;
+  border: 3px solid #153550 !important;
+  border-radius: 15px !important;
+  box-shadow: 0 5px #153550 !important;
+  background: linear-gradient(#9be9ff,#4dbdec) !important;
+  overflow-wrap: anywhere !important;
+  opacity: 1 !important;
+}
+#gameView:is(.pie-theme-level-5,.level-bg-5) .odd-option:nth-child(2n) {
+  background: linear-gradient(#ffe98b,#ffca37) !important;
+}
+#gameView:is(.pie-theme-level-5,.level-bg-5) .odd-option.odd-selected,
+#gameView:is(.pie-theme-level-5,.level-bg-5) .odd-option.odd-selected:nth-child(2n) {
+  color: #0d422c !important;
+  background: linear-gradient(#a4f7ae,#45d978) !important;
+  box-shadow: 0 3px #153550 !important;
+  transform: translateY(2px) !important;
+}
+#gameView:is(.pie-theme-level-5,.level-bg-5) .odd-option:hover:not(:disabled) {
+  filter: brightness(1.07) !important;
+}
+
+/* =============== LEVEL 7 — BUSINESS MODEL / MOT MYSTÈRE =============== */
+#gameView:is(.pie-theme-level-7,.level-bg-7) .question-content .game-picture {
+  display: none !important;
+}
+#gameView:is(.pie-theme-level-7,.level-bg-7) .answer-slots {
+  box-sizing: border-box !important;
+  min-height: 74px !important;
+  max-width: 650px !important;
+  margin: 15px auto !important;
+  padding: 12px !important;
+  border: 3px solid #125c83 !important;
+  background: #063e58 !important;
+  border-radius: 13px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+}
+#gameView:is(.pie-theme-level-7,.level-bg-7) .slot-placeholder {
+  color: #dcf7ff !important;
+}
+#gameView:is(.pie-theme-level-7,.level-bg-7) .answer-letter {
+  background: linear-gradient(#ffe879,#ffbd21) !important;
+  color: #16364c !important;
+  border: 2px solid #8d6210 !important;
+  border-radius: 8px !important;
+  font-size: 22px !important;
+}
+#gameView:is(.pie-theme-level-7,.level-bg-7) .letter-game-center {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 680px !important;
+  min-height: 290px !important;
+  margin: 18px auto !important;
+  padding: 25px 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #eaf8ff !important;
+  border: 3px solid #153550 !important;
+  border-radius: 19px !important;
+}
+#gameView:is(.pie-theme-level-7,.level-bg-7) .letter-game-center .letter-grid {
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: repeat(6,minmax(0,1fr)) !important;
+  width: min(100%,490px) !important;
+  max-width: 490px !important;
+  gap: 9px !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+#gameView:is(.pie-theme-level-7,.level-bg-7) .letter-tile {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 60px !important;
+  padding: 0 !important;
+  font-size: 25px !important;
+  font-weight: 900 !important;
+  border: 3px solid #153550 !important;
+  border-radius: 11px !important;
+  color: #102a43 !important;
+  box-shadow: 0 4px #153550 !important;
+}
+#gameView:is(.pie-theme-level-7,.level-bg-7) .letter-actions button {
+  background: #ffda2a !important;
+  color: #17233b !important;
+  border: 3px solid #152945 !important;
+  box-shadow: 0 4px #152945 !important;
+  padding: 12px 17px !important;
+  font-weight: 900 !important;
+}
+
+/* =============== LEVEL 6 — IFRAME SHELL =============== */
+#examView.pie-theme-level-6 {
+  box-sizing: border-box !important;
+  min-height: 100vh !important;
+  padding: 18px 14px 90px !important;
+}
+#examView.pie-theme-level-6 > div {
+  position: relative !important;
+  z-index: 3 !important;
+  width: min(100%,920px) !important;
+  margin: 0 auto !important;
+}
+#examView.pie-theme-level-6 #pieLevel6Frame {
+  box-sizing: border-box !important;
+  display: block !important;
+  width: min(100%,850px) !important;
+  max-width: 850px !important;
+  height: max(700px,85vh) !important;
+  min-height: 700px !important;
+  margin: 0 auto !important;
+  background: #ffffff !important;
+  border: 5px solid #11243d !important;
+  border-radius: 23px !important;
+  box-shadow: 8px 10px #11243d !important;
+}
+
+/* =============== SMALL SCREENS =============== */
+@media (max-width:850px) {
+  #gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) :is(.game-top,.progress-track,.question-card) {
+    width: 96% !important;
+  }
+  #gameView:is(.pie-theme-level-4,.level-bg-4,.pie-theme-level-5,.level-bg-5,.pie-theme-level-7,.level-bg-7) .question-card {
+    padding: 19px 12px !important;
+  }
+}
+@media (max-width:640px) {
+  #gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-clues { grid-template-columns: 1fr !important; }
+  #gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-keyboard { grid-template-columns: repeat(7,minmax(0,1fr)) !important; gap: 5px !important; }
+  #gameView:is(.pie-theme-level-4,.level-bg-4) .crossword-key { min-height: 40px !important; font-size: 15px !important; }
+  #gameView:is(.pie-theme-level-5,.level-bg-5) .odd-options { padding: 10px !important; gap: 8px !important; }
+  #gameView:is(.pie-theme-level-5,.level-bg-5) .odd-option { min-height: 72px !important; padding: 8px 5px !important; font-size: 14px !important; }
+  #gameView:is(.pie-theme-level-7,.level-bg-7) .letter-game-center { min-height: 210px !important; padding: 15px 7px !important; }
+  #gameView:is(.pie-theme-level-7,.level-bg-7) .letter-game-center .letter-grid { gap: 5px !important; }
+  #gameView:is(.pie-theme-level-7,.level-bg-7) .letter-tile { height: 44px !important; font-size: 18px !important; }
+  #examView.pie-theme-level-6 { padding: 10px 6px 80px !important; }
+  #examView.pie-theme-level-6 #pieLevel6Frame { width: 100% !important; min-height: 620px !important; height: 80vh !important; }
+}
+@media (prefers-reduced-motion:reduce) {
+  #gameView:is(.pie-theme-level-5,.level-bg-5) .odd-option { transition: none !important; }
+}
+
+/* ===== pie-feedback.css (merged, original selectors kept) ===== */
+/* PIE CHALLENGE | Jeff Bezos reaction, audio control and level victory */
+.pie-sound-toggle {
+  position: fixed; left: 14px; bottom: 82px; z-index: 9000;
+  border: 3px solid #11182d; border-radius: 13px; background: #ffdf27;
+  box-shadow: 4px 5px 0 #11182d; color: #11182d; padding: 10px 15px;
+  font: 900 14px/1.2 system-ui, sans-serif; cursor: pointer;
+}
+.pie-sound-toggle:focus-visible, .pie-victory button:focus-visible {outline: 4px solid #21bafa; outline-offset: 4px;}
+.pie-mascot-popup {
+  position: fixed; right: 16px; bottom: 82px; display: flex; align-items: center;
+  gap: 12px; z-index: 10020; pointer-events: none;
+  transform: translateX(calc(100% + 30px));
+  transition: transform .4s cubic-bezier(.22,.87,.28,1.25);
+  max-width: calc(100vw - 25px);
+}
+.pie-mascot-popup.show {transform: translateX(0);}
+.pie-mascot-bubble {
+  position: relative; color: #15522c; background: #d9f1df;
+  border: 4px solid #1a5e36; border-radius: 18px;
+  box-shadow: 6px 6px 0 #259754;
+  max-width: 275px; padding: 14px 17px;
+  font: 900 17px/1.35 system-ui,sans-serif; text-align: center;
+}
+.pie-mascot-bubble::after {content: ""; position: absolute; right: -18px; top: 50%; transform: translateY(-50%);
+  border: 9px solid transparent; border-left-color: #1a5e36;}
+.pie-mascot-popup.wrong .pie-mascot-bubble {
+  background: #fce0e3; color: #802a36; border-color: #8b2e3b;
+  box-shadow: 6px 6px 0 #d43b55;
+}
+.pie-mascot-popup.wrong .pie-mascot-bubble::after {border-left-color: #8b2e3b;}
+.pie-mascot-face { width: 125px; height: 133px; object-fit: contain;
+  filter: drop-shadow(2px 3px 0 #171528); }
+.pie-mascot-popup.correct .pie-mascot-face {animation: pie-head-happy .44s ease-in-out 2 alternate;}
+.pie-mascot-popup.wrong .pie-mascot-face {animation: pie-head-sad .2s ease-in-out 3;}
+@keyframes pie-head-happy {to {transform: translateY(-11px) rotate(-6deg)}}
+@keyframes pie-head-sad {25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* Level completion: full-screen comic celebration, no fabricated coins or gems. */
+.pie-victory {
+  position: fixed; inset: 0; z-index: 11000; display: grid; place-items: center;
+  overflow-y: auto; padding: 30px 15px 85px; opacity: 0; visibility: hidden;
+  pointer-events: none; transition: opacity .3s ease, visibility .3s ease;
+  background: linear-gradient(#081e61a8,#05172ccf), url('../images/level1-bg-q1.webp') center/cover no-repeat;
+}
+.pie-victory.active {opacity: 1; visibility: visible; pointer-events: auto;}
+.pie-victory-board { width: min(100%,580px); text-align: center; position:relative;
+  border: 6px solid #111629; border-radius: 28px; padding: clamp(20px,4vw,34px);
+  background: #fffefb; color: #0c2645; box-shadow: 9px 12px 0 #050a16,0 0 35px #ffe24b66;
+  transform: scale(.83) rotate(-4deg); transition: transform .48s cubic-bezier(.18,.87,.31,1.32);
+}
+.pie-victory.active .pie-victory-board {transform: scale(1) rotate(0);}
+.pie-victory-tag {display: inline-block; background: #ffe33d; color: #121a31;
+  border: 3px solid #15152b; box-shadow: 4px 4px 0 #15152b; border-radius: 12px;
+  padding: 7px 19px; font: 900 15px system-ui,sans-serif; transform:rotate(-2deg);
+}
+.pie-victory-title {margin: 19px 0 8px; font: 900 clamp(32px,6vw,56px)/1.04 Impact,'Arial Black',system-ui,sans-serif;
+  color: #ef2854; -webkit-text-stroke: 1px #12172a; text-shadow: 3px 4px 0 #ffce2b;}
+.pie-victory-stars {font-size:clamp(28px,6vw,46px);letter-spacing:7px; margin: 10px 0;
+  text-shadow: 2px 3px 0 #11182c; animation:pie-stars .75s ease-out both;}
+@keyframes pie-stars {from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+.pie-victory-level {font: 900 20px/1.3 system-ui,sans-serif; margin: 10px 0;}
+.pie-victory-message {border:3px solid #142846; background: #eff9ff; border-radius:15px;
+  font:800 16px/1.55 system-ui,sans-serif; padding:14px;margin:14px 0;}
+.pie-victory-score {display: inline-block; border-radius:12px; background:#142d50; color:#ffdf35;
+  padding: 10px 20px; font:900 20px system-ui,sans-serif; margin-bottom: 15px;}
+.pie-victory-actions {display:flex;flex-wrap:wrap;gap:13px;justify-content:center;align-items:center;margin-top:13px;}
+.pie-victory-actions button {padding:11px 19px;border:3px solid #11182c;border-radius:13px;
+  font:900 18px system-ui,sans-serif;box-shadow:3px 4px 0 #11182c;cursor:pointer;}
+#pieVictoryNext {background:linear-gradient(#ffde30,#ffb917);color:#13192c;}
+#pieVictoryClose {background:#164a74;color:white;}
+.pie-confetti {position:fixed;top:-26px;z-index:11020;pointer-events:none;width:12px;height:18px;
+  animation:pie-fall var(--duration,2s) linear forwards;}
+@keyframes pie-fall {to{transform:translate3d(var(--drift,0px),110vh,0) rotate(740deg);opacity:0}}
+@media(max-width:620px) {
+ .pie-mascot-popup {right:7px;bottom:90px;gap:7px;}
+ .pie-mascot-face {width:83px;height:92px;}
+ .pie-mascot-bubble {font-size:13px;max-width:205px;padding:9px 10px;border-width:3px;}
+ .pie-sound-toggle {left:8px;bottom:75px;padding:8px 11px;font-size:12px;}
+ .pie-victory-board {border-width:4px;padding:18px 12px;}
+ .pie-victory-actions button {font-size:15px;}
+}
+@media(prefers-reduced-motion:reduce) {
+ .pie-mascot-popup,.pie-mascot-face,.pie-victory,.pie-victory-board,.pie-victory-stars,.pie-confetti {
+  animation:none !important; transition:none !important;
+ }
+}
+
+/* ===== pie-admin.css (merged, original selectors kept) ===== */
+/* PIE Challenge: isolated admin-test UI. Not real authentication. */
+.pie-admin-entry { background:#ffdd2d;color:#141329;border:2px solid #101127;border-radius:12px;
+  font:800 12px system-ui,sans-serif;padding:9px 11px;white-space:nowrap;box-shadow:2px 3px #0007;z-index:20; }
+.pie-admin-entry:hover {filter:brightness(1.08)}
+.pie-admin-login[hidden],.pie-admin-panel[hidden] {display:none !important}
+.pie-admin-login {position:fixed;inset:0;z-index:12500;display:flex;justify-content:center;
+ align-items:center;background:#070d20dc;padding:15px;backdrop-filter:blur(7px)}
+.pie-admin-login-card {width:min(100%,405px);background:#1e2453;border:3px solid #ffe04a;
+ border-radius:22px;padding:27px;box-shadow:0 14px 0 #060c24,0 35px 80px #000a;
+ display:flex;flex-direction:column;gap:10px;position:relative;color:#fff;font-family:system-ui,sans-serif}
+.pie-admin-login-icon {font-size:33px;text-align:center}
+.pie-admin-login-card h2 {font-size:24px;text-align:center;color:#ffdb26}
+.pie-admin-login-card p {font-size:13px;line-height:1.5;color:#e1e8ff;text-align:center}
+.pie-admin-login-card label {font-size:13px;font-weight:800}
+.pie-admin-login-card input,.pie-admin-panel select {width:100%;padding:12px;border:2px solid #99a9dd;
+ border-radius:10px;color:#111a33;background:#fff;font:600 14px system-ui,sans-serif}
+.pie-admin-login-card small {color:#aab9df;text-align:center;font:11px/1.35 system-ui,sans-serif}
+.pie-admin-login-card .pie-admin-error {color:#ff9aa6;min-height:15px}
+.pie-admin-x {position:absolute;top:10px;right:14px;background:transparent;color:#fff;font-size:28px}
+.pie-admin-primary {background:#ffdb2c !important;color:#19203e !important;font-weight:900 !important}
+.pie-admin-login-card button[type=submit] {padding:14px;border-radius:10px;font-size:15px}
+.pie-admin-panel {position:fixed;left:15px;bottom:95px;z-index:10000;width:min(355px,calc(100vw - 30px));
+ background:#0e1733f5;color:#fff;border:3px solid #ffdc33;border-radius:15px;overflow:hidden;
+ box-shadow:5px 7px 0 #040819aa,0 15px 45px #0007;font-family:system-ui,sans-serif}
+.pie-admin-panel-title {background:#f8d926;color:#10122a;display:flex;align-items:center;justify-content:space-between;
+ padding:9px 12px;font:900 15px system-ui,sans-serif}
+.pie-admin-panel-title button {background:#11182e;color:white;border-radius:7px;padding:4px 12px;font-size:15px}
+.pie-admin-panel-body {padding:11px;display:flex;flex-direction:column;gap:9px}
+.pie-admin-panel.collapsed .pie-admin-panel-body {display:none}
+.pie-admin-status {font-size:11px;color:#c1daff;line-height:1.4}
+.pie-admin-panel label {font-size:12px;font-weight:800}
+.pie-admin-flex {display:flex;gap:7px}
+.pie-admin-panel button {background:#26355e;color:#fff;border:1px solid #7991c2;border-radius:9px;
+ padding:9px 10px;font:800 12px system-ui,sans-serif;white-space:nowrap;flex:1}
+.pie-admin-panel button:disabled {cursor:not-allowed;opacity:.42}
+.pie-admin-panel .pie-admin-full {width:100%}
+.pie-admin-panel .pie-admin-logout {background:#612a43;border-color:#b35a7b}
+.pie-admin-footnote {font-size:10px;color:#a9bcdf;line-height:1.4}
+@media (max-width:620px) {
+ .topbar {padding-left:3%;padding-right:3%;gap:6px}
+ .pie-admin-entry {padding:7px 6px;font-size:10px}
+ .header-stats {gap:6px;font-size:10px}
+ .logo {font-size:16px}
+ .pie-admin-panel {bottom:72px;max-height:65vh;overflow-y:auto}
+}
+
+/* ===== level3-word-order.css (merged, original selectors kept) ===== */
+
+/* ==========================================
+   PIE CHALLENGE — LEVEL 3
+   WORD ORDER - COMIC DESIGN
+========================================== */
+
+/* MAIN PLATFORM */
+
+#gameView.pie-theme-level-3 .question-card {
+    width: min(94%, 950px) !important;
+    max-width: 950px !important;
+    margin: 15px auto 30px !important;
+    padding: 28px 30px 35px !important;
+
+    background: #ffffff !important;
+    border: 5px solid #10152d !important;
+    border-radius: 25px !important;
+    box-shadow: 8px 10px 0 #10152d !important;
+
+    text-align: center !important;
+    color: #082746 !important;
+}
+
+/* QUESTION TITLE */
+
+#gameView.pie-theme-level-3 #questionTitle {
+    font-size: clamp(26px, 3vw, 42px) !important;
+    font-weight: 900 !important;
+    color: #082746 !important;
+    line-height: 1.2 !important;
+    margin: 15px auto 20px !important;
+}
+
+/* Hide the original shuffled words at the top.
+   The same words remain available in the blue board. */
+
+#gameView.pie-theme-level-3 #questionDescription {
+    display: none !important;
+}
+
+/* Remove the large notebook emoji */
+
+#gameView.pie-theme-level-3 .game-picture {
+    display: none !important;
+}
+
+/* Hide repeated instruction */
+
+#gameView.pie-theme-level-3 .mode-instruction {
+    display: none !important;
+}
+
+/* ==========================================
+   REORDER THE ELEMENTS USING CSS
+========================================== */
+
+#gameView.pie-theme-level-3 #answerArea {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    width: 100% !important;
+    max-width: 860px !important;
+    margin: 10px auto !important;
+    padding: 0 !important;
+}
+
+/* ==========================================
+   BLUE WORDS BOARD - AT THE TOP
+========================================== */
+
+#gameView.pie-theme-level-3 #wordOptions {
+    order: -1 !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    align-content: center !important;
+    flex-wrap: wrap !important;
+
+    gap: 15px !important;
+
+    width: 100% !important;
+    min-height: 280px !important;
+
+    margin: 0 auto 35px !important;
+    padding: 35px 25px !important;
+
+    background: linear-gradient(
+        135deg,
+        #caf5ff 0%,
+        #89e0f2 50%,
+        #4bc8e9 100%
+    ) !important;
+
+    border: 6px solid white !important;
+    outline: 3px solid #bce7fa !important;
+    border-radius: 35px !important;
+
+    box-shadow:
+        0 12px 22px rgba(0, 30, 70, 0.23),
+        inset 0 3px 8px rgba(255,255,255,0.4) !important;
+
+    box-sizing: border-box !important;
+}
+
+/* ==========================================
+   YELLOW WORD BUTTONS
+========================================== */
+
+#gameView.pie-theme-level-3 .word-chip {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    min-height: 65px !important;
+    min-width: 95px !important;
+
+    padding: 12px 24px !important;
+
+    background: linear-gradient(
+        180deg,
+        #fff36b 0%,
+        #ffdf00 55%,
+        #ffbc00 100%
+    ) !important;
+
+    color: #06162e !important;
+    -webkit-text-fill-color: #06162e !important;
+
+    border: 4px solid #081a38 !important;
+    border-radius: 20px !important;
+
+    font-family: Arial, sans-serif !important;
+    font-size: clamp(17px, 2vw, 25px) !important;
+    font-weight: 900 !important;
+    line-height: 1.2 !important;
+
+    text-shadow: none !important;
+    opacity: 1 !important;
+
+    box-shadow:
+        0 6px 0 #081a38,
+        0 9px 12px rgba(0,0,0,0.18) !important;
+
+    cursor: pointer !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s !important;
+}
+
+/* HOVER */
+
+#gameView.pie-theme-level-3
+.word-chip:hover:not(:disabled) {
+    transform: translateY(-4px) !important;
+    box-shadow:
+        0 9px 0 #081a38,
+        0 13px 15px rgba(0,0,0,0.2) !important;
+}
+
+/* Selected words disappear from the available board,
+   without moving the other buttons. */
+
+#gameView.pie-theme-level-3
+#wordOptions .word-chip:disabled {
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* ==========================================
+   ANSWER BOARD - TA PHRASE
+========================================== */
+
+#gameView.pie-theme-level-3 .word-answer-area {
+    order: 0 !important;
+
+    position: relative !important;
+
+    width: 100% !important;
+    min-height: 160px !important;
+
+    margin: 32px auto 25px !important;
+    padding: 38px 20px 20px !important;
+
+    background: linear-gradient(
+        135deg,
+        #e0f7ff,
+        #b9eaff
+    ) !important;
+
+    border: 4px dashed #1684cd !important;
+    border-radius: 23px !important;
+
+    box-sizing: border-box !important;
+}
+
+/* TA PHRASE LABEL */
+
+#gameView.pie-theme-level-3
+.word-answer-area > strong {
+    position: absolute !important;
+    top: -28px !important;
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
+    display: block !important;
+    width: max-content !important;
+    max-width: 90% !important;
+
+    padding: 8px 30px !important;
+
+    background: #ffdc00 !important;
+    color: #081a38 !important;
+
+    border: 3px solid #081a38 !important;
+    border-radius: 30px !important;
+
+    font-size: 25px !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+
+    box-shadow: 0 4px 0 #081a38 !important;
+}
+
+/* SELECTED WORDS CONTAINER */
+
+#gameView.pie-theme-level-3 #selectedWords {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 12px !important;
+
+    width: 100% !important;
+    min-height: 75px !important;
+
+    margin: 0 !important;
+    padding: 5px !important;
+}
+
+/* SELECTED WORD BUTTONS */
+
+#gameView.pie-theme-level-3
+#selectedWords .word-chip {
+    background: linear-gradient(
+        180deg,
+        #c4ffb0,
+        #60df76
+    ) !important;
+
+    color: #082a19 !important;
+    -webkit-text-fill-color: #082a19 !important;
+
+    font-size: 20px !important;
+}
+
+/* ==========================================
+   RESTART BUTTON
+========================================== */
+
+#gameView.pie-theme-level-3
+#answerArea > .secondary-btn {
+    order: 1 !important;
+
+    display: inline-block !important;
+
+    margin: 10px auto 15px !important;
+    padding: 15px 35px !important;
+
+    background: linear-gradient(
+        180deg,
+        #ffea00,
+        #ffbf00
+    ) !important;
+
+    color: #07162c !important;
+
+    border: 4px solid #07162c !important;
+    border-radius: 17px !important;
+
+    font-size: 21px !important;
+    font-weight: 900 !important;
+
+    box-shadow: 0 6px 0 #07162c !important;
+
+    cursor: pointer !important;
+}
+
+#gameView.pie-theme-level-3
+#answerArea > .secondary-btn:hover {
+    transform: translateY(-2px) !important;
+    filter: brightness(1.05) !important;
+}
+
+/* ==========================================
+   FEEDBACK
+========================================== */
+
+#gameView.pie-theme-level-3 #feedback {
+    font-size: 18px !important;
+    font-weight: 900 !important;
+}
+
+#gameView.pie-theme-level-3 #feedback.success {
+    color: #098755 !important;
+}
+
+#gameView.pie-theme-level-3 #feedback.error {
+    color: #d52b46 !important;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    #gameView.pie-theme-level-3 .question-card {
+        width: 96% !important;
+        padding: 20px 12px 28px !important;
+    }
+
+    #gameView.pie-theme-level-3 #wordOptions {
+        min-height: 200px !important;
+        padding: 20px 10px !important;
+        gap: 10px !important;
+    }
+
+    #gameView.pie-theme-level-3 .word-chip {
+        min-height: 48px !important;
+        min-width: 60px !important;
+        padding: 9px 13px !important;
+        font-size: 16px !important;
+        border-radius: 12px !important;
+    }
+
+    #gameView.pie-theme-level-3 .word-answer-area {
+        min-height: 140px !important;
+        padding: 35px 10px 15px !important;
+    }
+
+    #gameView.pie-theme-level-3
+    .word-answer-area > strong {
+        font-size: 19px !important;
+        padding: 7px 20px !important;
+    }
+}
+
+/* ===== orange-responsive.css (merged, original selectors kept) ===== */
+
+/* =========================================
+   PIE CHALLENGE
+   ORANGE NEON + RESPONSIVE DESIGN
+   Theme: #ff7f00
+========================================= */
+
+:root {
+    --orange: #ff7f00;
+    --orange-light: #ffb21a;
+    --dark: #100d24;
+    --purple: #2c102c;
+    --yellow: #ffdb21;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* =========================================
+   FIX GENERAL ZOOM - ALL LEVELS
+========================================= */
+
+body:has(#gameView.active),
+body:has(#examView.active) {
+    padding-bottom: 0 !important;
+}
+
+body:has(#gameView.active) .container,
+body:has(#examView.active) .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Smaller topbar while playing */
+
+body:has(#gameView.active) .topbar,
+body:has(#examView.active) .topbar {
+    height: 64px !important;
+    min-height: 64px !important;
+}
+
+#gameView.active {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+
+    min-height: calc(100dvh - 64px) !important;
+
+    margin: 0 !important;
+    padding: 10px 10px 85px !important;
+
+    overflow: visible !important;
+}
+
+/* Responsive width for game panels */
+
+#gameView.active .game-top,
+#gameView.active .progress-track,
+#gameView.active .question-card {
+    width: min(96vw, 1040px) !important;
+    max-width: 1040px !important;
+    min-width: 0 !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* =========================================
+   GAME HEADER
+========================================= */
+
+#gameView.active .game-top {
+    padding: 8px 15px !important;
+    margin-bottom: 10px !important;
+
+    background: linear-gradient(
+        135deg,
+        #27122b,
+        #100d24
+    ) !important;
+
+    border: 2px solid var(--orange) !important;
+    border-radius: 13px !important;
+
+    box-shadow:
+        0 0 12px #ff7f0080 !important;
+}
+
+#gameView.active .game-progress {
+    background: #fff0dc !important;
+    color: #181027 !important;
+    padding: 5px 10px !important;
+}
+
+/* Progress bar */
+
+#gameView.active .progress-track {
+    height: 9px !important;
+    margin-bottom: 10px !important;
+
+    background: #24112b !important;
+    border: 1px solid var(--orange) !important;
+}
+
+#gameView.active .progress-fill {
+    background: linear-gradient(
+        90deg,
+        #ff7f00,
+        #ffdf22
+    ) !important;
+}
+
+/* =========================================
+   MAIN OUTER FRAME - ALL LEVELS
+========================================= */
+
+#gameView.active .question-card {
+    padding: clamp(12px, 2vh, 25px) !important;
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+
+    background: linear-gradient(
+        145deg,
+        #281229 0%,
+        #100d24 55%,
+        #2c1023 100%
+    ) !important;
+
+    color: white !important;
+
+    border: 3px solid var(--orange) !important;
+    border-radius: 24px !important;
+
+    box-shadow:
+        0 0 0 2px #ffcb55,
+        0 0 20px #ff7f0080 !important;
+
+    overflow: visible !important;
+}
+
+/* Yellow level badge */
+
+#gameView.active .question-badge {
+    background: linear-gradient(
+        #ffef47,
+        #ffba00
+    ) !important;
+
+    color: #101024 !important;
+    border: 2px solid #101024 !important;
+    border-radius: 30px !important;
+
+    padding: 5px 20px !important;
+    margin: 0 !important;
+}
+
+/* Main title */
+
+#gameView.active #questionTitle {
+    color: #ffffff !important;
+
+    font-size: clamp(
+        22px,
+        2.7vw,
+        35px
+    ) !important;
+
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+
+    margin: 9px 0 6px !important;
+    text-shadow: 0 3px 5px #0009 !important;
+}
+
+/* Instructions */
+
+#gameView.active #questionDescription,
+#gameView.active .mode-instruction {
+    color: #fff0e4 !important;
+
+    font-size: clamp(
+        13px,
+        1.4vw,
+        17px
+    ) !important;
+
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    margin: 5px auto !important;
+}
+
+#gameView.active .question-content {
+    margin: 8px auto !important;
+}
+
+#gameView.active .answer-area {
+    width: 100% !important;
+    margin: 8px auto !important;
+}
+
+/* Smaller images for PC screens */
+
+#gameView.active .game-picture {
+    width: min(100%, 270px) !important;
+
+    height: clamp(
+        80px,
+        15vh,
+        145px
+    ) !important;
+
+    margin: 7px auto !important;
+}
+
+#gameView.active .question-image {
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+}
+
+/* =========================================
+   LEVEL 1, 2, 7 - LETTER GAMES
+========================================= */
+
+/* Answer display */
+
+#gameView.active .answer-slots {
+    min-height: 52px !important;
+    max-width: 780px !important;
+
+    padding: 7px !important;
+    margin: 8px auto !important;
+
+    background: linear-gradient(
+        #ff971d,
+        #c54b05
+    ) !important;
+
+    border: 2px solid #ffbf55 !important;
+    border-radius: 14px !important;
+}
+
+#gameView.active .slot-placeholder {
+    color: white !important;
+    font-weight: 800 !important;
+}
+
+#gameView.active .answer-letter {
+    background: #fff8eb !important;
+    color: #171027 !important;
+
+    border: 2px solid #ffb21a !important;
+    border-radius: 8px !important;
+}
+
+/* Dark orange letter board */
+
+#gameView.active .letter-game-center {
+    width: min(100%, 850px) !important;
+    max-width: 850px !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    padding: 12px !important;
+    margin: 9px auto !important;
+
+    background: linear-gradient(
+        145deg,
+        #321022,
+        #812607,
+        #321022
+    ) !important;
+
+    border: 3px solid var(--orange) !important;
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 0 15px #ff7f0080 !important;
+}
+
+/* Responsive letter grid */
+
+#gameView.active
+.letter-game-center .letter-grid {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr)) !important;
+
+    width: min(100%, 455px) !important;
+    max-width: 455px !important;
+
+    gap: 6px !important;
+
+    padding: 0 !important;
+    margin: 0 auto !important;
+
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Letter buttons */
+
+#gameView.active
+.letter-game-center .letter-tile {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex: initial !important;
+
+    height: clamp(
+        36px,
+        5.7vh,
+        54px
+    ) !important;
+
+    padding: 0 !important;
+
+    font-size: clamp(
+        16px,
+        2vw,
+        25px
+    ) !important;
+
+    font-weight: 900 !important;
+    color: #101024 !important;
+
+    border: 2px solid #151025 !important;
+    border-radius: 10px !important;
+
+    box-shadow: 0 3px 0 #101024 !important;
+}
+
+/* Yellow and white alternating tiles */
+
+#gameView.active .letter-tile:nth-child(odd) {
+    background: linear-gradient(
+        #fff65c,
+        #ffc400
+    ) !important;
+}
+
+#gameView.active .letter-tile:nth-child(even) {
+    background: linear-gradient(
+        #ffffff,
+        #e7e6fa
+    ) !important;
+}
+
+#gameView.active .letter-tile:disabled {
+    opacity: 0.2 !important;
+}
+
+/* =========================================
+   LEVEL 3 - WORD ORDER
+========================================= */
+
+#gameView.active.pie-theme-level-3 #answerArea {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+/* Words on top */
+
+#gameView.active.pie-theme-level-3 #wordOptions {
+    order: -1 !important;
+
+    width: min(100%, 850px) !important;
+    min-height: 0 !important;
+
+    margin: 10px auto 28px !important;
+    padding: 18px 12px !important;
+
+    background: linear-gradient(
+        135deg,
+        #401025,
+        #8d3008,
+        #401025
+    ) !important;
+
+    border: 3px solid var(--orange) !important;
+    border-radius: 18px !important;
+
+    box-shadow: 0 0 12px #ff7f0080 !important;
+}
+
+#gameView.active.pie-theme-level-3
+#wordOptions .word-chip {
+    background: linear-gradient(
+        #fff05b,
+        #ffc400
+    ) !important;
+
+    color: #101024 !important;
+
+    padding: 9px 16px !important;
+    min-height: 40px !important;
+
+    font-size: clamp(
+        15px,
+        1.8vw,
+        22px
+    ) !important;
+
+    border: 2px solid #101024 !important;
+    border-radius: 11px !important;
+    opacity: 1 !important;
+}
+
+#gameView.active.pie-theme-level-3
+#wordOptions .word-chip:disabled {
+    visibility: hidden !important;
+}
+
+/* Ta phrase */
+
+#gameView.active.pie-theme-level-3
+.word-answer-area {
+    order: 0 !important;
+
+    width: 100% !important;
+    min-height: 95px !important;
+
+    margin: 15px auto 10px !important;
+    padding: 28px 12px 12px !important;
+
+    background: #fff3e5 !important;
+    color: #101024 !important;
+
+    border: 2px dashed var(--orange) !important;
+}
+
+#gameView.active.pie-theme-level-3
+.word-answer-area > strong {
+    background: #ffdc29 !important;
+    color: #101024 !important;
+}
+
+#gameView.active.pie-theme-level-3
+#selectedWords .word-chip {
+    background: #ffdfa0 !important;
+    color: #101024 !important;
+
+    border: 2px solid var(--orange) !important;
+    padding: 7px 11px !important;
+}
+
+/* Restart button */
+
+#gameView.active.pie-theme-level-3
+#answerArea > .secondary-btn {
+    order: 1 !important;
+
+    background: #ffcd15 !important;
+    color: #101024 !important;
+
+    border: 2px solid #101024 !important;
+    padding: 9px 20px !important;
+    margin: 8px auto !important;
+}
+
+/* =========================================
+   LEVEL 4 - CROSSWORD
+========================================= */
+
+#gameView.active.pie-theme-level-4
+.crossword-board {
+    padding: 12px !important;
+
+    background: #271126 !important;
+
+    border: 2px solid var(--orange) !important;
+    border-radius: 16px !important;
+}
+
+#gameView.active.pie-theme-level-4
+.crossword-square {
+    width: clamp(23px, 2.7vw, 34px) !important;
+    height: clamp(23px, 2.7vw, 34px) !important;
+}
+
+#gameView.active.pie-theme-level-4
+.crossword-key {
+    border-color: var(--orange) !important;
+}
+
+/* =========================================
+   LEVEL 5 - FIND THE ODD ONE
+========================================= */
+
+#gameView.active.pie-theme-level-5
+.odd-options {
+    width: min(100%, 720px) !important;
+
+    padding: 12px !important;
+    margin: 9px auto !important;
+
+    background: #301325 !important;
+    border: 2px solid var(--orange) !important;
+    border-radius: 14px !important;
+}
+
+#gameView.active.pie-theme-level-5
+.odd-option {
+    min-height: clamp(
+        45px,
+        6vh,
+        72px
+    ) !important;
+
+    font-size: clamp(
+        14px,
+        1.6vw,
+        19px
+    ) !important;
+}
+
+#gameView.active.pie-theme-level-5
+.odd-option.odd-selected {
+    background: #ffba24 !important;
+    color: #101024 !important;
+}
+
+/* =========================================
+   BUTTONS - ALL LEVELS
+========================================= */
+
+#gameView.active .letter-actions,
+#gameView.active .game-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+
+    gap: 9px !important;
+    margin: 10px auto !important;
+}
+
+#gameView.active .letter-actions .secondary-btn,
+#gameView.active .game-actions button {
+    min-height: 38px !important;
+
+    padding: 8px 17px !important;
+    margin: 0 !important;
+
+    font-size: clamp(
+        14px,
+        1.5vw,
+        19px
+    ) !important;
+
+    border: 2px solid #101024 !important;
+    border-radius: 10px !important;
+
+    box-shadow: 0 4px 0 #101024 !important;
+    transform: none !important;
+}
+
+#gameView.active .letter-actions
+.secondary-btn:first-child {
+    background: linear-gradient(
+        #ff4b54,
+        #da0026
+    ) !important;
+
+    color: white !important;
+}
+
+#gameView.active .letter-actions
+.secondary-btn:last-child,
+#gameView.active #checkBtn,
+#gameView.active #nextBtn {
+    background: linear-gradient(
+        #ffec40,
+        #ffbd00
+    ) !important;
+
+    color: #101024 !important;
+    text-shadow: none !important;
+}
+
+#gameView.active #hintBtn {
+    background: #8133b0 !important;
+    color: white !important;
+}
+
+/* =========================================
+   LEVEL 6 - IFRAME SIZE
+========================================= */
+
+#examView.active.pie-theme-level-6 {
+    min-height: calc(100dvh - 64px) !important;
+    padding: 12px 8px 85px !important;
+}
+
+#examView.active.pie-theme-level-6
+#pieLevel6Frame {
+    width: min(96vw, 1040px) !important;
+    max-width: 1040px !important;
+
+    height: calc(100dvh - 170px) !important;
+    min-height: 480px !important;
+
+    border: 3px solid var(--orange) !important;
+    border-radius: 18px !important;
+
+    box-shadow: 0 0 14px #ff7f0080 !important;
+}
+
+/* =========================================
+   SHORT PC SCREENS
+========================================= */
+
+@media (max-height: 800px) and (min-width: 701px) {
+
+    #gameView.active {
+        padding-top: 6px !important;
+        padding-bottom: 76px !important;
+    }
+
+    #gameView.active .question-card {
+        padding: 9px 16px !important;
+    }
+
+    #gameView.active #questionTitle {
+        font-size: clamp(
+            21px,
+            2.3vw,
+            29px
+        ) !important;
+
+        margin: 5px 0 !important;
+    }
+
+    #gameView.active .letter-game-center {
+        padding: 8px !important;
+    }
+
+    #gameView.active
+    .letter-game-center .letter-tile {
+        height: clamp(
+            31px,
+            5.2vh,
+            43px
+        ) !important;
+    }
+
+    #gameView.active .question-content {
+        margin: 5px auto !important;
+    }
+
+    #gameView.active .game-picture {
+        height: min(105px, 13vh) !important;
+    }
+}
+
+/* =========================================
+   MOBILE / SMALL SCREENS
+========================================= */
+
+@media (max-width: 700px) {
+
+    #gameView.active {
+        padding: 8px 5px 85px !important;
+    }
+
+    #gameView.active .game-top,
+    #gameView.active .progress-track,
+    #gameView.active .question-card {
+        width: 98% !important;
+    }
+
+    #gameView.active .question-card {
+        padding: 10px 7px !important;
+    }
+
+    #gameView.active #questionTitle {
+        font-size: clamp(
+            21px,
+            5vw,
+            27px
+        ) !important;
+    }
+
+    #gameView.active .letter-game-center {
+        padding: 8px 4px !important;
+    }
+
+    #gameView.active
+    .letter-game-center .letter-grid {
+        gap: 4px !important;
+    }
+
+    #gameView.active
+    .letter-game-center .letter-tile {
+        height: clamp(
+            34px,
+            9vw,
+            45px
+        ) !important;
+
+        font-size: clamp(
+            14px,
+            4vw,
+            19px
+        ) !important;
+    }
+
+    #examView.active.pie-theme-level-6
+    #pieLevel6Frame {
+        width: 98% !important;
+        height: calc(100dvh - 150px) !important;
+        min-height: 420px !important;
+    }
+}
+
+/* ===== PIE_Challenge_Compact_Screen_Fix.css (merged, original selectors kept) ===== */
+/* PIE CHALLENGE — COMPACT SCREEN FIX (12 Nov 2026)
+   ADD AFTER orange-responsive.css. Preserves orange #ff7f00 design.
+   Responsive without browser zoom or fullscreen; keeps footer from covering buttons.
+*/
+
+/* During the game, footer participates in layout instead of covering the card. */
+body:has(#gameView.active),
+body:has(#examView.active) {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    height: auto !important;
+    padding-bottom: 0 !important;
+    overflow-y: auto !important;
+}
+body:has(#gameView.active) > .container,
+body:has(#examView.active) > .container {
+    flex: 1 0 auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+body:has(#gameView.active) > .bottom-nav,
+body:has(#examView.active) > .bottom-nav {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    flex: 0 0 auto !important;
+    margin-top: auto !important;
+    padding: 4px 12px !important;
+    min-height: 52px !important;
+    gap: clamp(16px, 4vw, 45px) !important;
+    border-top-width: 3px !important;
+}
+body:has(#gameView.active) .bottom-nav button,
+body:has(#examView.active) .bottom-nav button {
+    font-size: 19px !important;
+    line-height: 1.1 !important;
+    gap: 2px !important;
+}
+body:has(#gameView.active) .bottom-nav button span,
+body:has(#examView.active) .bottom-nav button span { font-size: 10px !important; }
+
+body:has(#gameView.active) > .topbar,
+body:has(#examView.active) > .topbar {
+    height: 52px !important;
+    min-height: 52px !important;
+    flex: 0 0 52px !important;
+    padding-inline: 3% !important;
+}
+
+/* Smaller centered platform: portraits stay visible on both sides. */
+#gameView.active {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 8px 12px 16px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+}
+#gameView.active .game-top,
+#gameView.active .progress-track,
+#gameView.active .question-card {
+    width: min(94vw, 800px) !important;
+    max-width: 800px !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+#gameView.active .game-top {
+    min-height: 42px !important;
+    padding: 4px 10px !important;
+    margin-top: 0 !important;
+    margin-bottom: 5px !important;
+}
+#gameView.active .game-top .secondary-btn {
+    padding: 6px 12px !important;
+    font-size: 16px !important;
+}
+#gameView.active .game-progress { padding: 4px 7px !important; }
+#gameView.active .progress-track {
+    height: 6px !important;
+    margin: 0 auto 7px !important;
+}
+#gameView.active .question-card {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 11px 16px 13px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    overflow: visible !important;
+}
+#gameView.active .question-badge {
+    padding: 3px 14px !important;
+    font-size: 12px !important;
+}
+#gameView.active #questionTitle {
+    font-size: clamp(22px, 2vw, 29px) !important;
+    line-height: 1.13 !important;
+    margin: 6px auto 3px !important;
+}
+#gameView.active #questionDescription,
+#gameView.active .mode-instruction {
+    font-size: clamp(13px, 1vw, 16px) !important;
+    line-height: 1.22 !important;
+    margin: 3px auto !important;
+}
+#gameView.active .question-content,
+#gameView.active .answer-area { margin: 6px auto !important; }
+#gameView.active .game-picture {
+    height: clamp(62px, 11dvh, 108px) !important;
+    margin: 4px auto !important;
+}
+#gameView.active .answer-slots {
+    min-height: 40px !important;
+    padding: 5px 8px !important;
+    margin: 5px auto !important;
+}
+#gameView.active .letter-game-center {
+    min-height: 0 !important;
+    padding: 8px !important;
+    margin: 6px auto !important;
+    max-width: 690px !important;
+}
+#gameView.active .letter-game-center .letter-grid {
+    width: min(100%, 385px) !important;
+    max-width: 385px !important;
+    gap: 4px !important;
+}
+#gameView.active .letter-game-center .letter-tile {
+    height: clamp(34px, 5.2dvh, 43px) !important;
+    font-size: clamp(17px, 1.5vw, 23px) !important;
+    border-radius: 7px !important;
+    box-shadow: 0 2px 0 #0c0920 !important;
+}
+#gameView.active .letter-actions,
+#gameView.active .game-actions {
+    gap: 8px !important;
+    margin: 5px auto !important;
+}
+#gameView.active .letter-actions .secondary-btn,
+#gameView.active .game-actions button {
+    min-height: 32px !important;
+    padding: 6px 12px !important;
+    margin: 0 !important;
+    font-size: clamp(14px, 1vw, 17px) !important;
+    line-height: 1.1 !important;
+}
+#gameView.active .feedback,
+#gameView.active #feedback {
+    min-height: 10px !important;
+    margin: 4px auto !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+}
+/* Level 3 is naturally taller because its words can wrap. */
+#gameView.active.pie-theme-level-3 #wordOptions {
+    min-height: 0 !important;
+    padding: 11px 9px !important;
+    margin: 4px auto 18px !important;
+    gap: 8px !important;
+}
+#gameView.active.pie-theme-level-3 #wordOptions .word-chip {
+    min-height: 35px !important;
+    padding: 6px 11px !important;
+    font-size: clamp(14px, 1.3vw, 18px) !important;
+}
+#gameView.active.pie-theme-level-3 .word-answer-area {
+    min-height: 70px !important;
+    padding: 22px 9px 8px !important;
+    margin: 18px auto 5px !important;
+}
+#gameView.active.pie-theme-level-3 #selectedWords { min-height: 37px !important; }
+/* Long puzzles may scroll normally; never cut off buttons. */
+#gameView.active.pie-theme-level-4 .crossword-board { max-width: 100% !important; }
+#gameView.active.pie-theme-level-5 .odd-options { margin: 6px auto !important; }
+
+/* Level 6: iframe can scroll its own content if the exam is long. */
+#examView.active.pie-theme-level-6 {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding: 10px 12px 18px !important;
+}
+#examView.active.pie-theme-level-6 iframe,
+#examView.active.pie-theme-level-6 #pieLevel6Frame {
+    width: min(94vw, 800px) !important;
+    max-width: 800px !important;
+    height: max(450px, calc(100dvh - 145px)) !important;
+    min-height: 0 !important;
+}
+
+@media (max-width: 700px) {
+    #gameView.active { padding: 7px 6px 14px !important; }
+    #gameView.active .game-top,
+    #gameView.active .progress-track,
+    #gameView.active .question-card { width: 98% !important; }
+    #gameView.active .question-card { padding: 9px 7px 13px !important; }
+    #gameView.active .letter-game-center .letter-grid { width: min(100%, 330px) !important; }
+    #gameView.active .letter-game-center .letter-tile { height: clamp(32px, 8vw, 41px) !important; }
+}
+
+/* Highest-specificity override for the older full-screen background rule.
+   It previously forced EVERY level to at least 100vh plus a fixed footer. */
+#gameView.active[class*="pie-theme-level-"] {
+    min-height: max(0px, calc(100dvh - 104px)) !important;
+    height: auto !important;
+    padding: 8px 12px 16px !important;
+    overflow: visible !important;
+}
+#examView.active.pie-theme-level-6 {
+    min-height: max(0px, calc(100dvh - 104px)) !important;
+    height: auto !important;
+    padding: 10px 12px 18px !important;
+}
+@media (max-width: 700px) {
+    #gameView.active[class*="pie-theme-level-"] { padding: 7px 6px 14px !important; }
+}
+
+/* Level 3: no giant notebook emoji above the word-order board. */
+#gameView.active.pie-theme-level-3 .game-picture {
+    display: none !important;
+}
+
+/* Keep more of level 1 visible on 1366x768 laptops. */
+@media (min-width: 701px) and (max-height: 800px) {
+    #gameView.active.pie-theme-level-1 .game-picture {
+        height: 57px !important;
+    }
+    #gameView.active.pie-theme-level-1 .question-image {
+        height: 100% !important;
+        padding: 3px !important;
+    }
+    #gameView.active.pie-theme-level-1 .letter-game-center .letter-tile {
+        height: 37px !important;
+    }
+    #gameView.active.pie-theme-level-1 .answer-area,
+    #gameView.active.pie-theme-level-1 .question-content {
+        margin: 3px auto !important;
+    }
+}
+
+/* ============================================================
+   PIE CHALLENGE | final 100% browser zoom responsive contract
+   13 Nov 2026
+   Intent: compact centered card, visible side illustrations,
+   reliable scroll for long crosswords, never overlap footer.
+   NOTE: no global zoom / transform scale; HTML remains accessible.
+   ============================================================ */
+html, body {overflow-x: clip;}
+body:has(#gameView.active),
+body:has(#examView.active) {
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  height: auto !important;
+  padding-bottom: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto !important;
+}
+body:has(#gameView.active) > .topbar,
+body:has(#examView.active) > .topbar {
+  flex: 0 0 54px !important;
+  height: 54px !important;
+  min-height: 54px !important;
+  position: relative !important;
+}
+body:has(#gameView.active) > .container,
+body:has(#examView.active) > .container {
+  flex: 1 0 auto !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body:has(#gameView.active) > .bottom-nav,
+body:has(#examView.active) > .bottom-nav {
+  position: relative !important;
+  inset: auto !important;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  margin: auto 0 0 !important;
+  min-height: 54px !important;
+  padding: 4px 12px !important;
+  z-index: 3 !important;
+}
+body:has(#gameView.active) .bottom-nav button,
+body:has(#examView.active) .bottom-nav button {
+  font-size: 18px !important;
+  line-height: 1.1 !important;
+}
+body:has(#gameView.active) .bottom-nav button span,
+body:has(#examView.active) .bottom-nav button span {
+  font-size: 10px !important;
+}
+#gameView.active,
+#gameView.active[class*="pie-theme-level-"],
+#gameView.active.level1-comic-scene {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: calc(100dvh - 108px) !important;
+  height: auto !important;
+  padding: 8px 12px 13px !important;
+  overflow: visible !important;
+  margin: 0 !important;
+}
+#gameView.active .game-top,
+#gameView.active .progress-track,
+#gameView.active .question-card,
+#gameView.active.level1-comic-scene .game-top,
+#gameView.active.level1-comic-scene .progress-track,
+#gameView.active.level1-comic-scene .question-card {
+  width: min(92vw, 760px) !important;
+  max-width: 760px !important;
+  min-width: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+#gameView.active .game-top {
+  min-height: 42px !important;
+  padding: 5px 10px !important;
+  margin-top: 0 !important;
+  margin-bottom: 5px !important;
+}
+#gameView.active .game-progress {padding: 4px 8px !important;}
+#gameView.active .progress-track {height: 7px !important; margin: 0 auto 7px !important;}
+#gameView.active .question-card,
+#gameView.active.level1-comic-scene .question-card {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: clamp(9px, 1.5vh, 16px) clamp(10px,1.8vw,20px) !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: visible !important;
+}
+#gameView.active .question-badge {padding: 4px 15px !important; font-size: 13px !important;}
+#gameView.active #questionTitle {
+  font-size: clamp(22px, 2.2vw, 29px) !important;
+  line-height: 1.15 !important;
+  margin: 6px auto 4px !important;
+}
+#gameView.active #questionDescription,
+#gameView.active .mode-instruction {
+  font-size: clamp(13px, 1.1vw, 16px) !important;
+  line-height: 1.25 !important;
+  margin: 3px auto !important;
+}
+#gameView.active .question-content,
+#gameView.active .answer-area {margin: 5px auto !important;}
+#gameView.active .game-picture {
+  height: clamp(67px, 12dvh, 108px) !important;
+  margin: 4px auto !important;
+}
+#gameView.active.level1-comic-scene .question-image {
+  height: min(100%, 108px) !important;
+  max-width: min(100%, 385px) !important;
+  object-fit: contain !important;
+  padding: 2px !important;
+}
+#gameView.active .answer-slots {
+  min-height: 41px !important;
+  padding: 5px 8px !important;
+  margin: 5px auto !important;
+}
+#gameView.active .letter-game-center {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 8px !important;
+  margin: 6px auto !important;
+  max-width: 690px !important;
+}
+#gameView.active .letter-game-center .letter-grid,
+#gameView.active .letter-grid {
+  width: min(100%, 390px) !important;
+  max-width: 390px !important;
+  gap: 4px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+#gameView.active .letter-game-center .letter-tile,
+#gameView.active .letter-tile {
+  height: clamp(35px, 5.2dvh, 45px) !important;
+  font-size: clamp(17px, 1.5vw, 23px) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 0 #0c0920 !important;
+}
+#gameView.active .letter-actions,
+#gameView.active .game-actions {
+  gap: 8px !important;
+  margin: 6px auto !important;
+}
+#gameView.active .letter-actions .secondary-btn,
+#gameView.active .game-actions button {
+  min-height: 33px !important;
+  padding: 7px 13px !important;
+  margin: 0 !important;
+  font-size: clamp(14px, 1.1vw, 17px) !important;
+  line-height: 1.15 !important;
+}
+#gameView.active #feedback {min-height: 12px !important; margin: 4px auto !important; padding: 0 !important;}
+/* Level 3: keep words visible within orange tableau, and phrase beneath. */
+#gameView.active.pie-theme-level-3 .game-picture {display: none !important;}
+#gameView.active.pie-theme-level-3 #wordOptions {
+  min-height: 0 !important;
+  padding: 12px 10px !important;
+  margin: 6px auto 20px !important;
+  gap: 8px !important;
+}
+#gameView.active.pie-theme-level-3 #wordOptions .word-chip {
+  min-height: 38px !important;
+  min-width: 0 !important;
+  padding: 7px 12px !important;
+  font-size: clamp(15px, 1.45vw, 19px) !important;
+}
+#gameView.active.pie-theme-level-3 .word-answer-area {
+  min-height: 75px !important;
+  padding: 24px 9px 8px !important;
+  margin: 19px auto 5px !important;
+}
+#gameView.active.pie-theme-level-3 #selectedWords {min-height: 42px !important;}
+/* Crossword may be taller: keep its clues/buttons reachable by scrolling. */
+#gameView.active.pie-theme-level-4 .crossword-board {max-width:100% !important;}
+#gameView.active.pie-theme-level-4 .crossword-scroll {max-width:100% !important; overflow-x:auto !important;}
+#gameView.active.pie-theme-level-5 .odd-options {margin:6px auto !important;}
+/* Contrast: older light-theme text was dark-on-dark after the orange skin. */
+#gameView.active.pie-theme-level-4 .crossword-board h3,
+#gameView.active.pie-theme-level-4 .crossword-board .mode-instruction,
+#gameView.active:is(.pie-theme-level-4,.pie-theme-level-5,.pie-theme-level-7) .mode-instruction {
+  color: #fff4e9 !important;
+  opacity: 1 !important;
+}
+/* Level 6 keeps its original embedded examination. */
+#examView.active.pie-theme-level-6 {
+  min-height: calc(100dvh - 108px) !important; height: auto !important;
+  padding: 8px 12px 15px !important;
+  overflow: visible !important;
+}
+#examView.active.pie-theme-level-6 iframe,
+#examView.active.pie-theme-level-6 #pieLevel6Frame {
+  width: min(92vw, 800px) !important;
+  max-width: 800px !important;
+  height: max(410px, calc(100dvh - 220px)) !important;
+  min-height: 0 !important;
+}
+@media (max-height: 800px) and (min-width: 701px) {
+  #gameView.active .question-card {padding-top:9px !important; padding-bottom:10px !important;}
+  #gameView.active .game-picture {height: min(10dvh,85px) !important;}
+  #gameView.active:is(.level1-comic-scene,.pie-theme-level-7) .game-picture {height: 59px !important;}
+  #gameView.active:is(.level1-comic-scene,.pie-theme-level-7) .letter-game-center {padding: 5px !important;}
+  #gameView.active:is(.level1-comic-scene,.pie-theme-level-7) .letter-tile {height: 34px !important;}
+  #gameView.active:is(.level1-comic-scene,.pie-theme-level-7) .answer-slots {min-height: 35px !important;}
+  #gameView.active.level1-comic-scene .question-image {max-height: 100% !important;}
+}
+/* Extra-tight screens: retain readable tiles at normal browser zoom. */
+@media (min-width: 701px) and (max-height: 740px) {
+  #gameView.active:is(.level1-comic-scene,.pie-theme-level-7) .game-picture {height: 46px !important;}
+  #gameView.active:is(.level1-comic-scene,.pie-theme-level-7) .letter-tile {height: 32px !important;}
+  #gameView.active:is(.level1-comic-scene,.pie-theme-level-7) .answer-slots {min-height: 33px !important; padding: 3px 6px !important;}
+  #gameView.active:is(.level1-comic-scene,.pie-theme-level-7) .game-actions {margin: 3px auto !important;}
+  #gameView.active.pie-theme-level-7 .letter-game-center {padding:3px !important; margin:3px auto !important;}
+  #gameView.active.pie-theme-level-7 .answer-slots {margin:3px auto !important;}
+  #gameView.active.pie-theme-level-7 .question-card {padding-block:7px !important;}
+}
+@media (max-width: 700px) {
+  #gameView.active {padding:8px 5px 13px !important;}
+  #gameView.active .game-top,
+  #gameView.active .progress-track,
+  #gameView.active .question-card {width:98% !important;}
+  #gameView.active .question-card {padding:10px 8px !important;}
+  #gameView.active .letter-game-center .letter-grid {width:min(100%,330px) !important;}
+  #gameView.active .letter-game-center .letter-tile {height:clamp(33px,9vw,43px) !important;}
+  #gameView.active.pie-theme-level-3 #wordOptions {padding:9px 7px !important;}
+  #examView.active.pie-theme-level-6 iframe {width:98% !important;}
+}
+
+
+/* =============================================================
+   LEVEL 1 ONLY — images about 3x larger, while keeping 100% zoom
+   This override goes at the very end of css/pie.css.
+   A short viewport can scroll naturally; the footer never overlays
+   the answer/verification buttons. Other levels are not affected.
+   ============================================================= */
+#gameView.active.level1-comic-scene .game-picture {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: min(100%, 650px) !important;
+    max-width: 650px !important;
+    height: clamp(210px, 30dvh, 324px) !important;
+    min-height: 0 !important;
+    margin: 8px auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+#gameView.active.level1-comic-scene .game-picture .question-image {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* For common 1366x768 and 1280x720 displays: 3x the former
+   46–59px thumbnail, without changing browser zoom. */
+@media (min-width: 701px) and (max-height: 800px) {
+    #gameView.active.level1-comic-scene .game-picture {
+        height: clamp(145px, 23dvh, 184px) !important;
+    }
+}
+
+@media (max-width: 700px) {
+    #gameView.active.level1-comic-scene .game-picture {
+        width: min(100%, 580px) !important;
+        height: clamp(150px, 42vw, 230px) !important;
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "stylesheets_before": 11,
+  "stylesheets_after": 1,
+  "css_rules": 680,
+  "missing_references": [],
+  "png_clues": [
+    "besoin.png",
+    "budget.png",
+    "equipe.png",
+    "financement.png",
+    "startup.png",
+    "idee.png",
+    "marche.png",
+    "client.png",
+    "innovation.png"
+  ]
+}
